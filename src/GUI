@@ -1,0 +1,345 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.JToggleButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+
+public class GUI {
+
+	private JFrame frame;
+	private ArrayList<JButton> JButtons;
+	private ArrayList<JRadioButton> RButtons;
+	private ArrayList<JToggleButton> TGBUttons;
+	private CommandsInterface commandInt;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI window = new GUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public GUI(){
+		commandInt = new ChronoTimer();
+		JButtons = new ArrayList<JButton>();
+		RButtons = new ArrayList<JRadioButton>();
+		TGBUttons = new ArrayList<JToggleButton>();
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 833, 614);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setTitle("ChronoTimer");
+
+		frame.setResizable(false);
+
+		JRadioButton ch_1 = new JRadioButton("");
+		RButtons.add(ch_1);
+		ch_1.setBounds(240, 116, 25, 25);
+		frame.getContentPane().add(ch_1);
+
+		JRadioButton ch_2 = new JRadioButton("");
+		RButtons.add(ch_2);
+		ch_2.setBounds(240, 223, 25, 25);
+		frame.getContentPane().add(ch_2);
+
+		JButton btnFunction = new JButton("Function");
+		JButtons.add(btnFunction);
+		btnFunction.setBounds(12, 325, 94, 25);
+		frame.getContentPane().add(btnFunction);
+
+		JButton btnSwap = new JButton("Swap");
+		JButtons.add(btnSwap);
+		btnSwap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.SWAP();
+			}
+		});
+		btnSwap.setBounds(12, 366, 94, 25);
+		frame.getContentPane().add(btnSwap);
+
+		JRadioButton ch_3 = new JRadioButton("");
+		RButtons.add(ch_3);
+		ch_3.setBounds(291, 116, 25, 25);
+		frame.getContentPane().add(ch_3);
+
+		JRadioButton ch_4 = new JRadioButton("");
+		RButtons.add(ch_4);
+		ch_4.setBounds(291, 223, 25, 25);
+		frame.getContentPane().add(ch_4);
+
+		JRadioButton ch_5 = new JRadioButton("");
+		RButtons.add(ch_5);
+		ch_5.setBounds(344, 116, 25, 25);
+		frame.getContentPane().add(ch_5);
+
+		JRadioButton ch_6 = new JRadioButton("");
+		RButtons.add(ch_6);
+		ch_6.setBounds(344, 223, 25, 25);
+		frame.getContentPane().add(ch_6);
+
+		JRadioButton ch_7 = new JRadioButton("");
+		RButtons.add(ch_7);
+		ch_7.setBounds(394, 116, 25, 25);
+		frame.getContentPane().add(ch_7);
+
+		JRadioButton ch_8 = new JRadioButton("");
+		RButtons.add(ch_8);
+		ch_8.setBounds(394, 223, 25, 25);
+		frame.getContentPane().add(ch_8);
+
+		JTextArea queueScreen = new JTextArea();
+		queueScreen.setEditable(false);
+		queueScreen.setBounds(185, 255, 278, 274);
+		frame.getContentPane().add(queueScreen);
+
+		JButton btnPrinterPower = new JButton("Printer Power");
+		JButtons.add(btnPrinterPower);
+		btnPrinterPower.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.PRINTERPOWER();
+			}
+		});
+		btnPrinterPower.setBounds(509, 41, 157, 25);
+		frame.getContentPane().add(btnPrinterPower);
+
+		JTextArea printScreen = new JTextArea();
+		printScreen.setEditable(false);
+		printScreen.setBounds(509, 82, 158, 88);
+		frame.getContentPane().add(printScreen);
+
+		JPanel panel = new JPanel();
+		panel.setBounds(509, 255, 143, 136);
+		frame.getContentPane().add(panel);
+		panel.setLayout(new MigLayout("", "[][][]", "[][][][]"));
+
+		JButton button = new JButton("1");
+		JButtons.add(button);
+		panel.add(button, "cell 0 0");
+
+		JButton button_1 = new JButton("2");
+		JButtons.add(button_1);
+		panel.add(button_1, "cell 1 0,growx");
+
+		JButton button_2 = new JButton("3");
+		JButtons.add(button_2);
+		panel.add(button_2, "cell 2 0,growx");
+
+		JButton button_3 = new JButton("4");
+		JButtons.add(button_3);
+		panel.add(button_3, "cell 0 1");
+
+		JButton button_4 = new JButton("5");
+		JButtons.add(button_4);
+		panel.add(button_4, "cell 1 1");
+
+		JButton button_5 = new JButton("6");
+		JButtons.add(button_5);
+		panel.add(button_5, "cell 2 1,growx");
+
+		JButton button_6 = new JButton("7");
+		JButtons.add(button_6);
+		panel.add(button_6, "cell 0 2");
+
+		JButton button_7 = new JButton("8");
+		JButtons.add(button_7);
+		panel.add(button_7, "cell 1 2");
+
+		JButton button_8 = new JButton("9");
+		JButtons.add(button_8);
+		panel.add(button_8, "cell 2 2,growx");
+
+		JButton button_9 = new JButton("*");
+		JButtons.add(button_9);
+		panel.add(button_9, "cell 0 3");
+
+		JButton button_10 = new JButton("0");
+		JButtons.add(button_10);
+		panel.add(button_10, "cell 1 3");
+
+		JButton button_11 = new JButton("#");
+		JButtons.add(button_11);
+		panel.add(button_11, "cell 2 3");
+
+
+		JToggleButton tgbCH1 = new JToggleButton("");
+		TGBUttons.add(tgbCH1);
+		tgbCH1.setBounds(240, 79, 25, 25);
+		frame.getContentPane().add(tgbCH1);
+		
+		JToggleButton tgbCH3 = new JToggleButton("");
+		TGBUttons.add(tgbCH3);
+		tgbCH3.setBounds(291, 79, 25, 25);
+		frame.getContentPane().add(tgbCH3);
+		
+		JToggleButton tgbCH5 = new JToggleButton("");
+		TGBUttons.add(tgbCH5);
+		tgbCH5.setBounds(344, 79, 25, 25);
+		frame.getContentPane().add(tgbCH5);
+		
+		JToggleButton tgbCH7 = new JToggleButton("");
+		TGBUttons.add(tgbCH7);
+		tgbCH7.setBounds(394, 79, 25, 25);
+		frame.getContentPane().add(tgbCH7);
+		
+		JToggleButton tgbCH2 = new JToggleButton("");
+		TGBUttons.add(tgbCH2);
+		tgbCH2.setBounds(240, 186, 25, 25);
+		frame.getContentPane().add(tgbCH2);
+		
+		JToggleButton tgbCH4 = new JToggleButton("");
+		TGBUttons.add(tgbCH4);
+		tgbCH4.setBounds(291, 186, 25, 25);
+		frame.getContentPane().add(tgbCH4);
+		
+		JToggleButton tgbCH6 = new JToggleButton("");
+		TGBUttons.add(tgbCH6);
+		tgbCH6.setBounds(344, 186, 25, 25);
+		frame.getContentPane().add(tgbCH6);
+		
+		JToggleButton tgbCH8 = new JToggleButton("");
+		TGBUttons.add(tgbCH8);
+		tgbCH8.setBounds(394, 186, 25, 25);
+		frame.getContentPane().add(tgbCH8);
+
+		for(JButton jb : JButtons) {
+			jb.setEnabled(false);
+		}
+		for(JRadioButton rb : RButtons) {
+			rb.setEnabled(false);
+		}
+		for(JToggleButton tgb : TGBUttons) {
+			tgb.setEnabled(false);
+		}
+
+		JToggleButton tglbtnPower = new JToggleButton("Power");
+		tglbtnPower.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(tglbtnPower.isSelected()) {
+					commandInt.POWER();
+					for(JButton jb : JButtons) {
+						jb.setEnabled(true);
+					}
+					for(JRadioButton rb : RButtons) {
+						rb.setEnabled(true);
+					}
+					for(JToggleButton tgb : TGBUttons) {
+						tgb.setEnabled(true);
+					}
+					queueScreen.setEditable(true);
+					printScreen.setEditable(true);
+				}
+				else if(!tglbtnPower.isSelected()) {
+					commandInt.POWER();
+					for(JButton jb : JButtons) {
+						jb.setEnabled(false);
+					}
+					for(JRadioButton rb : RButtons) {
+						rb.setEnabled(false);
+					}
+					for(JToggleButton tgb : TGBUttons) {
+						tgb.setEnabled(false);
+					}
+					queueScreen.setEditable(false);
+					printScreen.setEditable(false);
+				}
+			}
+		});
+		tglbtnPower.setBounds(12, 24, 94, 29);
+		frame.getContentPane().add(tglbtnPower);
+		
+		JLabel lblNewLabel = new JLabel("CHRONOTMER 1009");
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 22));
+		lblNewLabel.setBounds(208, 0, 231, 41);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblStart = new JLabel("Start");
+		lblStart.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblStart.setBounds(187, 82, 38, 20);
+		frame.getContentPane().add(lblStart);
+		
+		JLabel lblFinish = new JLabel("Finish");
+		lblFinish.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFinish.setBounds(185, 186, 46, 20);
+		frame.getContentPane().add(lblFinish);
+		
+		JLabel lblEnabledisable = new JLabel("Enable/Disable");
+		lblEnabledisable.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblEnabledisable.setBounds(122, 116, 113, 20);
+		frame.getContentPane().add(lblEnabledisable);
+		
+		JLabel label = new JLabel("Enable/Disable");
+		label.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label.setBounds(122, 223, 107, 20);
+		frame.getContentPane().add(label);
+		
+		JLabel label_1 = new JLabel("  1");
+		label_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_1.setBounds(240, 55, 25, 25);
+		frame.getContentPane().add(label_1);
+		
+		JLabel label_2 = new JLabel("  3");
+		label_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_2.setBounds(291, 55, 25, 25);
+		frame.getContentPane().add(label_2);
+		
+		JLabel label_3 = new JLabel("  5");
+		label_3.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_3.setBounds(344, 55, 25, 25);
+		frame.getContentPane().add(label_3);
+		
+		JLabel label_4 = new JLabel("  7");
+		label_4.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_4.setBounds(396, 55, 25, 25);
+		frame.getContentPane().add(label_4);
+		
+		JLabel label_5 = new JLabel("  2");
+		label_5.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_5.setBounds(240, 163, 25, 25);
+		frame.getContentPane().add(label_5);
+		
+		JLabel label_6 = new JLabel("  4");
+		label_6.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_6.setBounds(291, 163, 25, 25);
+		frame.getContentPane().add(label_6);
+		
+		JLabel label_7 = new JLabel("  6");
+		label_7.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_7.setBounds(344, 163, 25, 25);
+		frame.getContentPane().add(label_7);
+		
+		JLabel label_8 = new JLabel(" 8");
+		label_8.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_8.setBounds(396, 163, 25, 25);
+		frame.getContentPane().add(label_8);
+		
+	}
+}
