@@ -172,8 +172,11 @@ public class ChronoTimer implements CommandsInterface {
 	}
 
 	public void SWAP() {
-		if(_storageUnitEventName.get(_storageUnitEventName.size()-1).equals("IND")) _event.swap();
-		_print.printThis(Time.getCurrentTimeString() + " Swapping racers");
+		if(!_raceInSession) _print.printThis(Time.getCurrentTimeString() + "No event in session");
+		else if(_storageUnitEventName.get(_storageUnitEventName.size()-1).equals("IND")) { 
+			_event.swap();
+			_print.printThis(Time.getCurrentTimeString() + " Swapping racers");
+		}
 	}
 
 	public void PRINTERPOWER() {
