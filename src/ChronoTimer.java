@@ -139,11 +139,41 @@ public class ChronoTimer implements CommandsInterface {
 
 	}
 
-	
-	public void RESET() {
-		// TODO Auto-generated method stub
+	public void PRINTERPOWER() {
+		_print.PRINTERPOWER();
+		_print.printThis(Time.getCurrentTimeString() + " PRINTER POWER BUTTON");
 	}
 
+	
+	public void RESET() {
+		chan = new Channel();
+		try {
+			_print = new Printer();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_eventName = "IND";
+		_storageUnit = new ArrayList<Queue<Racer>>();
+		_storageUnitEventName = new ArrayList<String>();
+		_raceInSession = false;
+		Time.startTime();
+		_print.printThis(Time.getCurrentTimeString()+"SYSTEM RESET");
+	}
+
+	public void START() {
+		_event.trigger(1);
+		_print.printThis(Time.getCurrentTimeString()+ " START");
+
+	}
+
+	public void SWAP() {
+		if(!_raceInSession) _print.printThis(Time.getCurrentTimeString() + "No event in session");
+		else if(_storageUnitEventName.get(_storageUnitEventName.size()-1).equals("IND")) { 
+			_event.swap();
+			_print.printThis(Time.getCurrentTimeString() + " Swapping racers");
+		}
+	}
 	
 	public void TIME(String time) {
 		Time.setTime(time);
@@ -165,24 +195,8 @@ public class ChronoTimer implements CommandsInterface {
 		// else do nothing, channel is disabled or a race is not in session
 	}
 	
-	public void START() {
-		_event.trigger(1);
-		_print.printThis(Time.getCurrentTimeString()+ " START");
 
-	}
 
-	public void SWAP() {
-		if(!_raceInSession) _print.printThis(Time.getCurrentTimeString() + "No event in session");
-		else if(_storageUnitEventName.get(_storageUnitEventName.size()-1).equals("IND")) { 
-			_event.swap();
-			_print.printThis(Time.getCurrentTimeString() + " Swapping racers");
-		}
-	}
-
-	public void PRINTERPOWER() {
-		_print.PRINTERPOWER();
-		_print.printThis(Time.getCurrentTimeString() + " PRINTER POWER BUTTON");
-	}
 
 	
 	
