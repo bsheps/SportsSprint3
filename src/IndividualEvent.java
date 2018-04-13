@@ -20,7 +20,7 @@ public class IndividualEvent implements EventInterface{
 	 * @param Time.getCurrentTime()
 	 */
 	public void trigger(int chNum) {
-		if(chNum   == 1){	// odd means start time
+		if(chNum == 1){	// odd means start time
 			if(WaitingToRace.size() == 0) {
 				Racer n = new Racer("noName");
 				n.startRace(Time.getCurrentTime());
