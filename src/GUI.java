@@ -4,13 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.JToggleButton;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 
-import javax.swing.JToggleButton;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 
@@ -18,8 +19,12 @@ public class GUI {
 
 	private JFrame frame;
 	private ArrayList<JButton> JButtons;
+	private ArrayList<JButton> keypad;
 	private ArrayList<JRadioButton> RButtons;
-	private ArrayList<JToggleButton> TGBUttons;
+	private JTextArea queueScreen;
+	private String [] instructions = {"1 - CLR","2 - CONN","3 - DISC"
+			,"4 - DNF","5 - ENDRUN", "6 - EVENT","7 - EXPORT","8 - FINISH","9 - NEWRUN","10 - NUM","11 - PRINT","12 - RESET", 
+			"13 - TIME","14 - START","15 - SWAP"};
 	private CommandsInterface commandInt;
 
 	/**
@@ -45,7 +50,8 @@ public class GUI {
 		commandInt = new ChronoTimer();
 		JButtons = new ArrayList<JButton>();
 		RButtons = new ArrayList<JRadioButton>();
-		TGBUttons = new ArrayList<JToggleButton>();
+		keypad = new ArrayList<JButton>();
+		queueScreen = new JTextArea();
 		initialize();
 	}
 
@@ -70,8 +76,20 @@ public class GUI {
 		RButtons.add(ch_2);
 		ch_2.setBounds(240, 223, 25, 25);
 		frame.getContentPane().add(ch_2);
-
+		
 		JButton btnFunction = new JButton("Function");
+		btnFunction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for(JButton nums : keypad){
+					nums.setEnabled(true);
+				}
+				queueScreen.append("Select");
+				for(String str: instructions) {
+					queueScreen.append(str + "\n");
+				}
+				
+			}
+		});
 		JButtons.add(btnFunction);
 		btnFunction.setBounds(12, 325, 94, 25);
 		frame.getContentPane().add(btnFunction);
@@ -116,7 +134,7 @@ public class GUI {
 		ch_8.setBounds(394, 223, 25, 25);
 		frame.getContentPane().add(ch_8);
 
-		JTextArea queueScreen = new JTextArea();
+		
 		queueScreen.setEditable(false);
 		queueScreen.setBounds(185, 255, 278, 274);
 		frame.getContentPane().add(queueScreen);
@@ -141,92 +159,92 @@ public class GUI {
 		frame.getContentPane().add(panel);
 		panel.setLayout(new MigLayout("", "[][][]", "[][][][]"));
 
-		JButton button = new JButton("1");
-		JButtons.add(button);
-		panel.add(button, "cell 0 0");
+		JButton number1 = new JButton("1");
+		keypad.add(number1);
+		panel.add(number1, "cell 0 0");
 
-		JButton button_1 = new JButton("2");
-		JButtons.add(button_1);
-		panel.add(button_1, "cell 1 0,growx");
+		JButton number2 = new JButton("2");
+		keypad.add(number2);
+		panel.add(number2, "cell 1 0,growx");
 
-		JButton button_2 = new JButton("3");
-		JButtons.add(button_2);
-		panel.add(button_2, "cell 2 0,growx");
+		JButton number3 = new JButton("3");
+		keypad.add(number3);
+		panel.add(number3, "cell 2 0,growx");
 
-		JButton button_3 = new JButton("4");
-		JButtons.add(button_3);
-		panel.add(button_3, "cell 0 1");
+		JButton number4 = new JButton("4");
+		keypad.add(number4);
+		panel.add(number4, "cell 0 1");
 
-		JButton button_4 = new JButton("5");
-		JButtons.add(button_4);
-		panel.add(button_4, "cell 1 1");
+		JButton number5 = new JButton("5");
+		keypad.add(number5);
+		panel.add(number5, "cell 1 1");
 
-		JButton button_5 = new JButton("6");
-		JButtons.add(button_5);
-		panel.add(button_5, "cell 2 1,growx");
+		JButton number6 = new JButton("6");
+		keypad.add(number6);
+		panel.add(number6, "cell 2 1,growx");
 
-		JButton button_6 = new JButton("7");
-		JButtons.add(button_6);
-		panel.add(button_6, "cell 0 2");
+		JButton number7 = new JButton("7");
+		keypad.add(number7);
+		panel.add(number7, "cell 0 2");
 
-		JButton button_7 = new JButton("8");
-		JButtons.add(button_7);
-		panel.add(button_7, "cell 1 2");
+		JButton number8 = new JButton("8");
+		keypad.add(number8);
+		panel.add(number8, "cell 1 2");
 
-		JButton button_8 = new JButton("9");
-		JButtons.add(button_8);
-		panel.add(button_8, "cell 2 2,growx");
+		JButton number9 = new JButton("9");
+		keypad.add(number9);
+		panel.add(number9, "cell 2 2,growx");
 
-		JButton button_9 = new JButton("*");
-		JButtons.add(button_9);
-		panel.add(button_9, "cell 0 3");
+		JButton symb_1 = new JButton("*");
+		keypad.add(symb_1);
+		panel.add(symb_1, "cell 0 3");
 
-		JButton button_10 = new JButton("0");
-		JButtons.add(button_10);
-		panel.add(button_10, "cell 1 3");
+		JButton number0 = new JButton("0");
+		keypad.add(number0);
+		panel.add(number0, "cell 1 3");
 
-		JButton button_11 = new JButton("#");
-		JButtons.add(button_11);
-		panel.add(button_11, "cell 2 3");
+		JButton symb_2 = new JButton("#");
+		keypad.add(symb_2);
+		panel.add(symb_2, "cell 2 3");
 
 
-		JToggleButton tgbCH1 = new JToggleButton("");
-		TGBUttons.add(tgbCH1);
+		JButton tgbCH1 = new JButton("");
+		JButtons.add(tgbCH1);
 		tgbCH1.setBounds(240, 79, 25, 25);
 		frame.getContentPane().add(tgbCH1);
 		
-		JToggleButton tgbCH3 = new JToggleButton("");
-		TGBUttons.add(tgbCH3);
+		JButton tgbCH3 = new JButton("");
+		JButtons.add(tgbCH3);
 		tgbCH3.setBounds(291, 79, 25, 25);
 		frame.getContentPane().add(tgbCH3);
 		
-		JToggleButton tgbCH5 = new JToggleButton("");
-		TGBUttons.add(tgbCH5);
+		JButton tgbCH5 = new JButton("");
+		JButtons.add(tgbCH5);
 		tgbCH5.setBounds(344, 79, 25, 25);
 		frame.getContentPane().add(tgbCH5);
 		
-		JToggleButton tgbCH7 = new JToggleButton("");
-		TGBUttons.add(tgbCH7);
+		JButton tgbCH7 = new JButton("");
+		JButtons.add(tgbCH7);
 		tgbCH7.setBounds(394, 79, 25, 25);
 		frame.getContentPane().add(tgbCH7);
 		
-		JToggleButton tgbCH2 = new JToggleButton("");
-		TGBUttons.add(tgbCH2);
+		JButton tgbCH2 = new JButton("");
+		JButtons.add(tgbCH2);
 		tgbCH2.setBounds(240, 186, 25, 25);
 		frame.getContentPane().add(tgbCH2);
 		
-		JToggleButton tgbCH4 = new JToggleButton("");
-		TGBUttons.add(tgbCH4);
+		JButton tgbCH4 = new JButton("");
+		JButtons.add(tgbCH4);
 		tgbCH4.setBounds(291, 186, 25, 25);
 		frame.getContentPane().add(tgbCH4);
 		
-		JToggleButton tgbCH6 = new JToggleButton("");
-		TGBUttons.add(tgbCH6);
+		JButton tgbCH6 = new JButton("");
+		JButtons.add(tgbCH6);
 		tgbCH6.setBounds(344, 186, 25, 25);
 		frame.getContentPane().add(tgbCH6);
 		
-		JToggleButton tgbCH8 = new JToggleButton("");
-		TGBUttons.add(tgbCH8);
+		JButton tgbCH8 = new JButton("");
+		JButtons.add(tgbCH8);
 		tgbCH8.setBounds(394, 186, 25, 25);
 		frame.getContentPane().add(tgbCH8);
 
@@ -236,10 +254,10 @@ public class GUI {
 		for(JRadioButton rb : RButtons) {
 			rb.setEnabled(false);
 		}
-		for(JToggleButton tgb : TGBUttons) {
-			tgb.setEnabled(false);
-		}
 
+		for(JButton nums : keypad){
+			nums.setEnabled(false);
+		}
 		JToggleButton tglbtnPower = new JToggleButton("Power");
 		tglbtnPower.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -251,11 +269,9 @@ public class GUI {
 					for(JRadioButton rb : RButtons) {
 						rb.setEnabled(true);
 					}
-					for(JToggleButton tgb : TGBUttons) {
-						tgb.setEnabled(true);
+					for(JButton nums : keypad){
+						nums.setEnabled(false);
 					}
-					queueScreen.setEditable(true);
-					printScreen.setEditable(true);
 				}
 				else if(!tglbtnPower.isSelected()) {
 					commandInt.POWER();
@@ -265,11 +281,10 @@ public class GUI {
 					for(JRadioButton rb : RButtons) {
 						rb.setEnabled(false);
 					}
-					for(JToggleButton tgb : TGBUttons) {
-						tgb.setEnabled(false);
+					for(JButton nums : keypad){
+						nums.setEnabled(false);
 					}
-					queueScreen.setEditable(false);
-					printScreen.setEditable(false);
+					queueScreen.setText("");
 				}
 			}
 		});
