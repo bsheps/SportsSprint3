@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 
@@ -22,9 +21,10 @@ public class GUI {
 	private ArrayList<JButton> keypad;
 	private ArrayList<JRadioButton> RButtons;
 	private JTextArea queueScreen;
-	private String [] instructions = {"1 - CLR","2 - CONN","3 - DISC"
-			,"4 - DNF","5 - ENDRUN", "6 - EVENT","7 - EXPORT","8 - FINISH","9 - NEWRUN","10 - NUM","11 - PRINT","12 - RESET", 
-			"13 - TIME","14 - START","15 - SWAP"};
+	private String [] instructions = {"1 - CLR","2 - CONN","3 - DISC","4 - DNF",
+			"5 - ENDRUN", "6 - IND EVENT", "7 - PARA EVENT", "8 - GRP EVENT",
+			"9 - PARGRP EVENT", "10 - EXPORT","11 - FINISH","12 - NEWRUN","13 - NUM",
+			"14 - PRINT","15 - RESET", "16 - TIME","17 - START","18 - SWAP"};
 	private CommandsInterface commandInt;
 
 	/**
@@ -83,7 +83,7 @@ public class GUI {
 				for(JButton nums : keypad){
 					nums.setEnabled(true);
 				}
-				queueScreen.append("Select");
+				//queueScreen.append("Select");
 				for(String str: instructions) {
 					queueScreen.append(str + "\n");
 				}
@@ -136,7 +136,7 @@ public class GUI {
 
 		
 		queueScreen.setEditable(false);
-		queueScreen.setBounds(185, 255, 278, 274);
+		queueScreen.setBounds(185, 255, 278, 300);
 		frame.getContentPane().add(queueScreen);
 
 		JButton btnPrinterPower = new JButton("Printer Power");
