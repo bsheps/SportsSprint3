@@ -258,6 +258,8 @@ public class GUI {
 				queueScreen.setText(instruction);
 				switch(instruction) {
 				case "1": 
+					//queueScreen.setText("Enter bib number:");
+					//commandInt.CLR(bibNumber);
 					break;
 				case "2":
 					break;
@@ -289,11 +291,18 @@ public class GUI {
 					break;
 				case "16":
 					break;
+				case "17":
+					break;
+				case "18":
+					break;
+				default: queueScreen.setText("Invalid Selection");
+				break;
 				}
-
-
+				instruction = "";
 			}
+
 		});
+
 		keypad.add(symb_2);
 		panel.add(symb_2, "cell 2 3");
 
@@ -374,7 +383,6 @@ public class GUI {
 					for(JButton nums : keypad){
 						nums.setEnabled(false);
 					}
-					instruction = "";
 					queueScreen.setText("");
 				}
 			}
