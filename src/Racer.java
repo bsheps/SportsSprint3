@@ -35,6 +35,17 @@ public class Racer {
 	public void finishRace(LocalTime time) {
 		_endTime = time;
 	}
+	
+	/**
+	 * @param name: To update the racer's name
+	 */
+	public void setBibNum(String name) {
+		if(name == null) {
+			throw new IllegalArgumentException("Cannot set a name to be null.");
+		}
+		_bibNum = name;
+	}
+	
 	/**
 	 * 
 	 * @return a printer friendly string of the racer's time
