@@ -262,38 +262,54 @@ public class GUI {
 					//commandInt.CLR(bibNumber);
 					break;
 				case "2":
+					//commandInt.CONN(sensorType, channel);
 					break;
 				case "3":
+					//commandInt.DISC(channel2disconnect);
 					break;
 				case "4":
+					commandInt.DNF();
 					break;
 				case "5":
+					commandInt.ENDRUN();
 					break;
 				case "6":
+					commandInt.EVENT("IND");
 					break;
 				case "7":
+					commandInt.EVENT("PARA");
 					break;
 				case "8":
+					//commandInt.EVENT(PARAIND);
 					break;
 				case "9":
 					break;
 				case "10":
+					//commandInt.EXPORT(runNumber);
 					break;
 				case "11":
+					commandInt.FINISH();
 					break;
 				case "12":
+					commandInt.NEWRUN();
 					break;
 				case "13":
+					//commandInt.NUM(bibNumber);
 					break;
 				case "14":
+					//commandInt.PRINT(runNumber);
 					break;
 				case "15":
+					commandInt.RESET();
 					break;
 				case "16":
+					//commandInt.TIME(time);
 					break;
 				case "17":
+					commandInt.START();
 					break;
 				case "18":
+					commandInt.SWAP();
 					break;
 				default: queueScreen.setText("Invalid Selection");
 				break;
