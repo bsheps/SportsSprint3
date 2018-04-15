@@ -55,7 +55,7 @@ public class ChronoTimer implements CommandsInterface {
 
 	public void EVENT(String eventName) {
 		if(_raceInSession) _print.printThis(Time.getCurrentTimeString()+ " ERROR: End current event before setting a new event.");
-		else if(eventName.equals("IND")|| eventName.equals("PARIND"))
+		else if(eventName.equals("IND")|| eventName.equals("PARIND") || eventName.equals("GRP"))
 		{
 			_eventName = eventName;
 			_print.printThis(Time.getCurrentTimeString()+" Setting event to " + eventName);
