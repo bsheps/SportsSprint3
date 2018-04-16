@@ -5,15 +5,15 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JToggleButton;
-import javax.swing.plaf.InsetsUIResource;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 
 public class GUI {
@@ -84,6 +84,7 @@ public class GUI {
 		JButton btnFunction = new JButton("Function");
 		btnFunction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				queueScreen.setText("");
 				for(JButton nums : keypad){
 					nums.setEnabled(true);
 				}
@@ -255,17 +256,21 @@ public class GUI {
 		JButton symb_2 = new JButton("#");
 		symb_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				queueScreen.setText(instruction);
+			//	String x = JOptionPane.showInputDialog(frame, "You have chosen"+instruction,"message");
+			//	queueScreen.setText(instruction);
 				switch(instruction) {
 				case "1": 
-					//queueScreen.setText("Enter bib number:");
-					//commandInt.CLR(bibNumber);
+					String bibNum = JOptionPane.showInputDialog(frame, "Enter bib number:",null);
+					commandInt.CLR(Integer.parseInt(bibNum));
 					break;
 				case "2":
-					//commandInt.CONN(sensorType, channel);
+					String sensorType = JOptionPane.showInputDialog(frame, "Enter sensor type:",null);
+					String channel = JOptionPane.showInputDialog(frame, "Enter channel:",null);
+					commandInt.CONN(sensorType, Integer.parseInt(channel));
 					break;
 				case "3":
-					//commandInt.DISC(channel2disconnect);
+					String chan2Disc= JOptionPane.showInputDialog(frame,"Enter channel number to disconnect:",null);
+					commandInt.DISC(Integer.parseInt(chan2Disc));
 					break;
 				case "4":
 					commandInt.DNF();
@@ -280,12 +285,14 @@ public class GUI {
 					commandInt.EVENT("PARA");
 					break;
 				case "8":
-					//commandInt.EVENT(PARAIND);
+					commandInt.EVENT("PARAIND");
 					break;
 				case "9":
+					commandInt.EVENT("GRP");
 					break;
 				case "10":
-					//commandInt.EXPORT(runNumber);
+					String runNum = JOptionPane.showInputDialog(frame, "Enter run number:",null);
+					commandInt.EXPORT(Integer.parseInt(runNum));
 					break;
 				case "11":
 					commandInt.FINISH();
@@ -294,16 +301,19 @@ public class GUI {
 					commandInt.NEWRUN();
 					break;
 				case "13":
-					//commandInt.NUM(bibNumber);
+					String bibNum_2 = JOptionPane.showInputDialog(frame, "Enter bib number:",null);
+					commandInt.NUM(bibNum_2);
 					break;
 				case "14":
-					//commandInt.PRINT(runNumber);
+					String runNum_2 = JOptionPane.showInputDialog(frame, "Enter run number:", null);
+					commandInt.PRINT(Integer.parseInt(runNum_2));
 					break;
 				case "15":
 					commandInt.RESET();
 					break;
 				case "16":
-					//commandInt.TIME(time);
+					String time = JOptionPane.showInputDialog(frame, "Enter time:",null);
+					commandInt.TIME(time);
 					break;
 				case "17":
 					commandInt.START();
@@ -384,6 +394,7 @@ public class GUI {
 					for(JRadioButton rb : RButtons) {
 						rb.setEnabled(true);
 					}
+					
 					for(JButton nums : keypad){
 						nums.setEnabled(false);
 					}
