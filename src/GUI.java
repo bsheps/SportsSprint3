@@ -282,13 +282,13 @@ public class GUI {
 					commandInt.EVENT("IND");
 					break;
 				case "7":
-					commandInt.EVENT("PARA");
+					commandInt.EVENT("PARIND");
 					break;
 				case "8":
-					commandInt.EVENT("PARAIND");
+					commandInt.EVENT("GRP");
 					break;
 				case "9":
-					commandInt.EVENT("GRP");
+					commandInt.EVENT("PARGRP");
 					break;
 				case "10":
 					String runNum = JOptionPane.showInputDialog(frame, "Enter run number:",null);
@@ -321,8 +321,6 @@ public class GUI {
 				case "18":
 					commandInt.SWAP();
 					break;
-				default: queueScreen.setText("Invalid Selection");
-				break;
 				}
 				instruction = "";
 			}
