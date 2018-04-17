@@ -405,7 +405,7 @@ public class GUI {
 				commandInt.TRIG(2);;
 			}
 		});
-
+		
 		JButton tgbCH4 = new JButton("");
 		JButtons.add(tgbCH4);
 		tgbCH4.setBounds(291, 186, 25, 25);
