@@ -1,5 +1,3 @@
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
@@ -27,23 +25,14 @@ public class GUI {
 	private String [] instructions = {"1 - CLR","2 - CONN","3 - DISC","4 - DNF",
 			"5 - ENDRUN", "6 - IND EVENT", "7 - PARA EVENT", "8 - GRP EVENT",
 			"9 - PARGRP EVENT", "10 - EXPORT","11 - FINISH","12 - NEWRUN","13 - NUM",
-			"14 - PRINT","15 - RESET", "16 - TIME","17 - START","18 - SWAP"};
+			"14 - PRINT","15 - RESET", "16 - TIME","17 - START"};
 	private CommandsInterface commandInt;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI window = new GUI();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		new GUI();
 	}
 
 	/**
@@ -70,16 +59,6 @@ public class GUI {
 		frame.setTitle("ChronoTimer");
 
 		frame.setResizable(false);
-
-		JRadioButton ch_1 = new JRadioButton("");
-		RButtons.add(ch_1);
-		ch_1.setBounds(240, 116, 25, 25);
-		frame.getContentPane().add(ch_1);
-
-		JRadioButton ch_2 = new JRadioButton("");
-		RButtons.add(ch_2);
-		ch_2.setBounds(240, 223, 25, 25);
-		frame.getContentPane().add(ch_2);
 
 		JButton btnFunction = new JButton("Function");
 		btnFunction.addActionListener(new ActionListener() {
@@ -109,36 +88,85 @@ public class GUI {
 		btnSwap.setBounds(12, 366, 94, 25);
 		frame.getContentPane().add(btnSwap);
 
+		JRadioButton ch_1 = new JRadioButton("");
+		RButtons.add(ch_1);
+		ch_1.setBounds(240, 116, 25, 25);
+		frame.getContentPane().add(ch_1);
+		ch_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(1);;
+			}
+		});
+		
+		JRadioButton ch_2 = new JRadioButton("");
+		RButtons.add(ch_2);
+		ch_2.setBounds(240, 223, 25, 25);
+		frame.getContentPane().add(ch_2);
+		ch_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(2);;
+			}
+		});
+		
 		JRadioButton ch_3 = new JRadioButton("");
 		RButtons.add(ch_3);
 		ch_3.setBounds(291, 116, 25, 25);
 		frame.getContentPane().add(ch_3);
+		ch_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(3);;
+			}
+		});
 
 		JRadioButton ch_4 = new JRadioButton("");
 		RButtons.add(ch_4);
 		ch_4.setBounds(291, 223, 25, 25);
 		frame.getContentPane().add(ch_4);
+		ch_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(4);;
+			}
+		});
 
 		JRadioButton ch_5 = new JRadioButton("");
 		RButtons.add(ch_5);
 		ch_5.setBounds(344, 116, 25, 25);
 		frame.getContentPane().add(ch_5);
+		ch_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(5);;
+			}
+		});
 
 		JRadioButton ch_6 = new JRadioButton("");
 		RButtons.add(ch_6);
 		ch_6.setBounds(344, 223, 25, 25);
 		frame.getContentPane().add(ch_6);
+		ch_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(6);;
+			}
+		});
 
 		JRadioButton ch_7 = new JRadioButton("");
 		RButtons.add(ch_7);
 		ch_7.setBounds(394, 116, 25, 25);
 		frame.getContentPane().add(ch_7);
+		ch_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(7);;
+			}
+		});
 
 		JRadioButton ch_8 = new JRadioButton("");
 		RButtons.add(ch_8);
 		ch_8.setBounds(394, 223, 25, 25);
 		frame.getContentPane().add(ch_8);
-
+		ch_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TOG(8);;
+			}
+		});
 
 		queueScreen.setEditable(false);
 		queueScreen.setBounds(185, 255, 278, 300);
@@ -250,27 +278,28 @@ public class GUI {
 		panel.add(symb_1, "cell 0 3");
 
 		JButton number0 = new JButton("0");
+		number0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				instruction+="0";
+			}
+		});
 		keypad.add(number0);
 		panel.add(number0, "cell 1 3");
 
 		JButton symb_2 = new JButton("#");
 		symb_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//	String x = JOptionPane.showInputDialog(frame, "You have chosen"+instruction,"message");
-			//	queueScreen.setText(instruction);
+			//	queueScreen.setText(instruction);	// for debugging
 				switch(instruction) {
 				case "1": 
-					String bibNum = JOptionPane.showInputDialog(frame, "Enter bib number:",null);
-					commandInt.CLR(Integer.parseInt(bibNum));
+					commandInt.CLR(Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter bib number:",null)));
 					break;
 				case "2":
-					String sensorType = JOptionPane.showInputDialog(frame, "Enter sensor type:",null);
-					String channel = JOptionPane.showInputDialog(frame, "Enter channel:",null);
-					commandInt.CONN(sensorType, Integer.parseInt(channel));
+					commandInt.CONN(JOptionPane.showInputDialog(frame, "Enter sensor type:",null), 
+							Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter channel:",null)));
 					break;
 				case "3":
-					String chan2Disc= JOptionPane.showInputDialog(frame,"Enter channel number to disconnect:",null);
-					commandInt.DISC(Integer.parseInt(chan2Disc));
+					commandInt.DISC(Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter channel number to disconnect:",null)));
 					break;
 				case "4":
 					commandInt.DNF();
@@ -291,8 +320,7 @@ public class GUI {
 					commandInt.EVENT("PARGRP");
 					break;
 				case "10":
-					String runNum = JOptionPane.showInputDialog(frame, "Enter run number:",null);
-					commandInt.EXPORT(Integer.parseInt(runNum));
+					commandInt.EXPORT(Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter run number:",null)));
 					break;
 				case "11":
 					commandInt.FINISH();
@@ -301,30 +329,27 @@ public class GUI {
 					commandInt.NEWRUN();
 					break;
 				case "13":
-					String bibNum_2 = JOptionPane.showInputDialog(frame, "Enter bib number:",null);
-					commandInt.NUM(bibNum_2);
+					commandInt.NUM(JOptionPane.showInputDialog(frame, "Enter bib number:",null));
 					break;
 				case "14":
-					String runNum_2 = JOptionPane.showInputDialog(frame, "Enter run number:", null);
-					commandInt.PRINT(Integer.parseInt(runNum_2));
+					commandInt.PRINT(Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter run number:", null)));
 					break;
 				case "15":
 					commandInt.RESET();
 					break;
 				case "16":
-					String time = JOptionPane.showInputDialog(frame, "Enter time:",null);
-					commandInt.TIME(time);
+					commandInt.TIME(JOptionPane.showInputDialog(frame, "Enter time:",null));
 					break;
 				case "17":
 					commandInt.START();
 					break;
-				case "18":
-					commandInt.SWAP();
+				default:
+					System.out.println(instruction+" is invalid.");
+					JOptionPane.showMessageDialog(null, instruction+" is invalid.");
 					break;
 				}
 				instruction = "";
 			}
-
 		});
 
 		keypad.add(symb_2);
@@ -335,41 +360,81 @@ public class GUI {
 		JButtons.add(tgbCH1);
 		tgbCH1.setBounds(240, 79, 25, 25);
 		frame.getContentPane().add(tgbCH1);
+		tgbCH1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(1);;
+			}
+		});
 
 		JButton tgbCH3 = new JButton("");
 		JButtons.add(tgbCH3);
 		tgbCH3.setBounds(291, 79, 25, 25);
 		frame.getContentPane().add(tgbCH3);
+		tgbCH3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(3);;
+			}
+		});
 
 		JButton tgbCH5 = new JButton("");
 		JButtons.add(tgbCH5);
 		tgbCH5.setBounds(344, 79, 25, 25);
 		frame.getContentPane().add(tgbCH5);
+		tgbCH5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(5);;
+			}
+		});
 
 		JButton tgbCH7 = new JButton("");
 		JButtons.add(tgbCH7);
 		tgbCH7.setBounds(394, 79, 25, 25);
 		frame.getContentPane().add(tgbCH7);
+		tgbCH7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(7);;
+			}
+		});
 
 		JButton tgbCH2 = new JButton("");
 		JButtons.add(tgbCH2);
 		tgbCH2.setBounds(240, 186, 25, 25);
 		frame.getContentPane().add(tgbCH2);
+		tgbCH2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(2);;
+			}
+		});
 
 		JButton tgbCH4 = new JButton("");
 		JButtons.add(tgbCH4);
 		tgbCH4.setBounds(291, 186, 25, 25);
 		frame.getContentPane().add(tgbCH4);
+		tgbCH4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(4);;
+			}
+		});
 
 		JButton tgbCH6 = new JButton("");
 		JButtons.add(tgbCH6);
 		tgbCH6.setBounds(344, 186, 25, 25);
 		frame.getContentPane().add(tgbCH6);
+		tgbCH6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(6);;
+			}
+		});
 
 		JButton tgbCH8 = new JButton("");
 		JButtons.add(tgbCH8);
 		tgbCH8.setBounds(394, 186, 25, 25);
 		frame.getContentPane().add(tgbCH8);
+		tgbCH8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				commandInt.TRIG(8);;
+			}
+		});
 
 		for(JButton jb : JButtons) {
 			jb.setEnabled(false);
@@ -479,6 +544,8 @@ public class GUI {
 		label_8.setFont(new Font("Tahoma", Font.BOLD, 14));
 		label_8.setBounds(396, 163, 25, 25);
 		frame.getContentPane().add(label_8);
+		
+		frame.setVisible(true);
 
 	}
 }
