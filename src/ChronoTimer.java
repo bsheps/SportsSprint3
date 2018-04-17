@@ -65,19 +65,21 @@ public class ChronoTimer implements CommandsInterface {
 	}
 
 	public void EXPORT(int runNumber) {
-		Gson exportProxy = new Gson();
-		String exportFilename = "RUN"+runNumber+".txt";
-		try {
-			@SuppressWarnings("resource")
-			PrintWriter exportFile = new PrintWriter(exportFilename);
-			exportFile.println(exportProxy.toJson(_storageUnit.get(runNumber-1)));
-			exportFile.flush();
-			_print.printThis(Time.getCurrentTimeString()+ " Exporting run "+ runNumber);
-		} catch (Exception e) {
-			
-			e.printStackTrace();
+		if(runNumber>_storageUnit.size()) _print.printThis("EXPORT METHOD ERROR: Invalid run number; out of bounds exception");
+		else {
+			Gson exportProxy = new Gson();
+			String exportFilename = "RUN"+runNumber+".txt";
+			try {
+				@SuppressWarnings("resource")
+				PrintWriter exportFile = new PrintWriter(exportFilename);
+				exportFile.println(exportProxy.toJson(_storageUnit.get(runNumber-1)));
+				exportFile.flush();
+				_print.printThis(Time.getCurrentTimeString()+ " Exporting run "+ runNumber);
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
 		}
-		
 	}
 
 	public void FINISH() {
@@ -131,12 +133,14 @@ public class ChronoTimer implements CommandsInterface {
 
 	
 	public void PRINT(int runNumber) {
-		_print.printThis("Printing " + _storageUnitEventName.get(runNumber-1) + runNumber);
-		Queue<Racer> temp = _storageUnit.get(runNumber-1);
-		for(Racer t : temp) {
-			_print.printThis(t._bibNum + ": " + t.results());
+		if(runNumber>_storageUnit.size()) _print.printThis("PRINT METHOD ERROR: Invalid run number; out of bounds exception");
+		else {
+			_print.printThis("Printing " + _storageUnitEventName.get(runNumber-1) + runNumber);
+			Queue<Racer> temp = _storageUnit.get(runNumber-1);
+			for(Racer t : temp) {
+				_print.printThis(t._bibNum + ": " + t.results());
+			}
 		}
-
 	}
 
 	public void PRINTERPOWER() {
