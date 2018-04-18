@@ -36,7 +36,8 @@ public class GroupEvent implements EventInterface {
 	 * Allow adding a racer when no name/bibNumber is specified.
 	 */
 	public void addRacer() {
-		addRacer(null);
+		if (raceInSession) {System.out.println("GroupEvent.addRacer(): IllegalStateException");return;}
+		racers.add(new Racer("Racer #" + racers.size() + 1));
 	}
 
 	/*
@@ -51,12 +52,7 @@ public class GroupEvent implements EventInterface {
 	 */
 	@Override
 	public void addRacer(String bibNumber) {
-		if (raceInSession) {
-			throw new IllegalStateException("Cannot add a new Racer when a race is already in progress.");
-		}
-		if (bibNumber == null) {
-			bibNumber = "Racer #" + racers.size() + 1;
-		}
+		if (raceInSession) {System.out.println("GroupEvent.addRacer(String): IllegalStateException");return;}
 		racers.add(new Racer(bibNumber));
 	}
 
@@ -79,9 +75,7 @@ public class GroupEvent implements EventInterface {
 	public void trigger(int channelNumber) {
 		switch (channelNumber) {
 		case (1):
-			if (raceInSession) {
-				throw new IllegalStateException("A GRP Event race has already begun.");
-			}
+			if (raceInSession) {System.out.println("GroupEvent.trigger(chnum): IllegalStateException - raceinsession == true");return;}
 			raceInSession = true;
 			_startTime = Time.getCurrentTime();
 			for (Racer racer : racers) {
@@ -89,10 +83,8 @@ public class GroupEvent implements EventInterface {
 			}
 			break;
 		case (2):
+			if (!raceInSession) {System.out.println("GroupEvent.trigger(chnum): IllegalStateException - raceinsession != true");return;}
 			LocalTime temp = Time.getCurrentTime();
-			if (!raceInSession) {
-				throw new IllegalStateException("A GRP Event race has not yet begun.");
-			}
 			racers.peek().finishRace(temp);
 			finished.add(racers.remove());
 			if (racers.isEmpty()) {
@@ -100,7 +92,7 @@ public class GroupEvent implements EventInterface {
 			}
 			break;
 		default:
-			throw new IllegalArgumentException("This channel is not set up to be used for this event type.");
+		{System.out.println("GroupEvent.trigger(chnum): IllegalStateException for ch "+channelNumber);return;}
 		}
 	}
 
@@ -111,9 +103,7 @@ public class GroupEvent implements EventInterface {
 	 */
 	@Override
 	public Queue<Racer> moveAll() {
-		while (racers.size() > 0) {
-			finished.add(racers.remove());
-		}
+		finished.addAll(racers);
 		return finished;
 	}
 
@@ -128,15 +118,12 @@ public class GroupEvent implements EventInterface {
 	}
 
 	/*
-	 * This method was intended for use by IND race types only. Calling this method
-	 * will throw an UnsupportedOperationException.
+	 * This method was intended for use by IND race types only. 
 	 * 
 	 * @see EventInterface#swap()
 	 */
 	@Override
-	public void swap() {
-		throw new UnsupportedOperationException("SWAP is used to exchange the next two competitiors to finish, in IND race types only. It is undefined for GRP race types.");
-	}
+	public void swap() {/*DO NOTHING*/}
 
 	/**
 	 * Sets the name of a finished racer. Each time this method is called, the name

@@ -77,18 +77,9 @@ public class ParaIndEvent implements EventInterface{
 	}
 	
 	public Queue<Racer> moveAll() {
-		for (Racer x : channels12 ) {
-			x = channels12.remove();
-			finishers.add(x);
-		}
-		for (Racer y : channels34 ) {
-			y = channels34.remove();
-			finishers.add(y);
-		}
-		for (Racer z : waitingToRace) {
-			z = waitingToRace.remove();
-			finishers.add(z);
-		}
+		finishers.addAll(channels12);
+		finishers.addAll(channels34);
+		finishers.addAll(waitingToRace);
 		return finishers;
 	}
 
@@ -99,9 +90,7 @@ public class ParaIndEvent implements EventInterface{
 	}
 
 	
-	public void swap() {
-		// should never get here
-	}
+	public void swap() {/* should never get here; DO NOTHING*/}
 
 	@Override
 	public void clear(String bibNumber) {
@@ -115,7 +104,7 @@ public class ParaIndEvent implements EventInterface{
 			Racer n = it.next();
 			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
 		}
-		it = channels12.iterator();
+		it = channels34.iterator();
 		while(it.hasNext()) {
 			Racer n = it.next();
 			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}

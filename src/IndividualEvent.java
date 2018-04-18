@@ -49,36 +49,26 @@ public class IndividualEvent implements EventInterface{
 	}
 	
 	public Queue<Racer> moveAll(){
-		for (Racer x : inTheRace ) {
-			x = inTheRace.remove();
-			finishers.add(x);
-		}
-		for (Racer y : WaitingToRace) {
-			y = WaitingToRace.remove();
-			finishers.add(y);
-		}
-		
+		finishers.addAll(inTheRace);
+		finishers.addAll(WaitingToRace);
 		return finishers;
 	}
 	
 	public void dnf() {
-		dnfracer = true;
-		
+		dnfracer = true;	
 	}
 	/**
 	 * swap the top 2 racer in inTheRace queue
 	 */
 	public void swap() {
-		Racer tm = null;
-		if(inTheRace.size() <2) {/*can't swap*/}
-		else {
-			Queue<Racer> holder = new LinkedList<Racer>();
-			tm = inTheRace.remove();	// grab first racer in queue
-			holder.add(inTheRace.remove()); // add second racer to top of new queue
-			holder.add(tm);					// put first racer in second spot of new queue
-			holder.addAll(inTheRace);		// move everyone else
-			inTheRace = holder;				// reset to new queue
-		}
+		if(inTheRace.size() <2) return;
+		Queue<Racer> holder = new LinkedList<Racer>();
+		Racer tm = inTheRace.remove();	// grab first racer in queue
+		holder.add(inTheRace.remove()); // add second racer to top of new queue
+		holder.add(tm);					// put first racer in second spot of new queue
+		holder.addAll(inTheRace);		// move everyone else
+		inTheRace = holder;				// reset to new queue
+
 	}
 	@Override
 	public void clear(String bibNumber) {
