@@ -290,7 +290,7 @@ public class GUI {
 			//	queueScreen.setText(instruction);	// for debugging
 				switch(instruction) {
 				case "1": 
-					commandInt.CLR(Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter bib number:",null)));
+					commandInt.CLR((JOptionPane.showInputDialog(frame, "Enter bib number:",null)));
 					break;
 				case "2":
 					commandInt.CONN(JOptionPane.showInputDialog(frame, "Enter sensor type:",null), 

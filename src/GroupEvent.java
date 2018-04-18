@@ -1,7 +1,7 @@
 import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.Queue;
-
+import java.util.Iterator;
 /**
  * @author bjf
  * 
@@ -162,6 +162,20 @@ public class GroupEvent implements EventInterface {
 			throw new IllegalArgumentException("Cannot set a name with a null value.");
 		}
 		finished.get(namedRacers++).setBibNum(name);
+	}
+
+	@Override
+	public void clear(String bibNumber) {
+		Iterator<Racer> it = racers.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
+		it = finished.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
 	}
 
 }

@@ -23,8 +23,8 @@ public class ChronoTimer implements CommandsInterface {
 	ArrayList<Queue<Racer>> _storageUnit;
 	ArrayList<String> _storageUnitEventName;
 
-	public void CLR(int bibNumber) {
-		// TODO Auto-generated method stub
+	public void CLR(String bibNumber) {
+		_event.clear(bibNumber);
 
 	}
 

@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 /**
@@ -78,5 +79,24 @@ public class IndividualEvent implements EventInterface{
 			holder.addAll(inTheRace);		// move everyone else
 			inTheRace = holder;				// reset to new queue
 		}
+	}
+	@Override
+	public void clear(String bibNumber) {
+		Iterator<Racer> it = WaitingToRace.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
+		it = inTheRace.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
+		it = finishers.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
+		
 	}
 }

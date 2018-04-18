@@ -9,4 +9,5 @@ void trigger(int channelNumber);
 Queue<Racer> moveAll();
 void dnf();
 void swap();
+void clear(String bibNumber);
 }

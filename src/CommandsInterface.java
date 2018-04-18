@@ -3,7 +3,7 @@
  * Interface to connect with the chronotimer. Functions as a facade.
  */
 public interface CommandsInterface {
-	void CLR(int bibNumber); // remove the competitor from queue
+	void CLR(String bibNum); // remove the competitor from queue
 	void CONN(String sensorType, int channel); // connect a sensor
 	void DISC(int channel2disconnect);
 	void DNF();	// next racer in queue will not finish

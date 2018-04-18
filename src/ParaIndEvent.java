@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Iterator;
 
 /** 
  * @author faassad
@@ -100,6 +101,30 @@ public class ParaIndEvent implements EventInterface{
 	
 	public void swap() {
 		// should never get here
+	}
+
+	@Override
+	public void clear(String bibNumber) {
+		Iterator<Racer> it = waitingToRace.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
+		it = channels12.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
+		it = channels12.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
+		it = finishers.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+		}
 	}
 
 }
