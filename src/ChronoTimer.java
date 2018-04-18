@@ -97,7 +97,13 @@ public class ChronoTimer implements CommandsInterface {
 				_event = new IndividualEvent();
 			else if(_eventName.equals("PARIND"))
 				_event = new ParaIndEvent();
+			else if (_eventName.equals("GRP"))
+				_event = new GroupEvent();
+			else if (_eventName.equals("PARGRP"))
+				_event = new GroupEvent();
+			
 			_print.printThis(Time.getCurrentTimeString()+ " starting " + _eventName);
+			
 		}
 	}
 
