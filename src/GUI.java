@@ -3,6 +3,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JToggleButton;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -11,6 +12,10 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
+import java.awt.FlowLayout;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 
 public class GUI {
 
@@ -177,13 +182,8 @@ public class GUI {
 				commandInt.PRINTERPOWER();
 			}
 		});
-		btnPrinterPower.setBounds(509, 41, 157, 25);
+		btnPrinterPower.setBounds(495, 41, 171, 25);
 		frame.getContentPane().add(btnPrinterPower);
-
-		JTextArea printScreen = new JTextArea();
-		printScreen.setEditable(false);
-		printScreen.setBounds(509, 82, 158, 88);
-		frame.getContentPane().add(printScreen);
 
 		JPanel panel = new JPanel();
 		panel.setBounds(509, 255, 143, 136);
@@ -542,6 +542,16 @@ public class GUI {
 		label_8.setFont(new Font("Tahoma", Font.BOLD, 14));
 		label_8.setBounds(396, 163, 25, 25);
 		frame.getContentPane().add(label_8);
+		
+		
+		JTextArea printScreen = new JTextArea();
+		printScreen.setWrapStyleWord(true);
+		printScreen.setLineWrap(true);
+		printScreen.setEditable(false);
+		JScrollPane scroll = new JScrollPane(printScreen);
+		scroll.setBounds(495, 75, 171, 136);
+		frame.getContentPane().add(scroll);
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		frame.setVisible(true);
 
