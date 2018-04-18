@@ -551,9 +551,7 @@ public class GUI {
 		JScrollPane scroll = new JScrollPane(printScreen);
 		scroll.setBounds(495, 75, 171, 136);
 		frame.getContentPane().add(scroll);
-		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		
-		
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);		
 		
 		frame.setVisible(true);
 
