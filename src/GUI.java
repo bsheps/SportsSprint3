@@ -553,6 +553,8 @@ public class GUI {
 		frame.getContentPane().add(scroll);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
+		
+		
 		frame.setVisible(true);
 
 	}
