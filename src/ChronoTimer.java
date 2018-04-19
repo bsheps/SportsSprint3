@@ -110,6 +110,7 @@ public class ChronoTimer implements CommandsInterface {
 	public void NUM(String bibNumber) {
 		_event.addRacer(bibNumber);
 		_print.printThis(Time.getCurrentTimeString()+ " racer created with bib: "+bibNumber);
+		_event.guiDisplay();
 	}
 
 
@@ -201,7 +202,10 @@ public class ChronoTimer implements CommandsInterface {
 	
 	public void TRIG(int channelNumber) {
 		_print.printThis(Time.getCurrentTimeString()+ " Trigger channel "+channelNumber );
-		if(chan.isChannelEnabled(channelNumber) && _raceInSession) _event.trigger(channelNumber);	
+		if(chan.isChannelEnabled(channelNumber) && _raceInSession) {
+			_event.trigger(channelNumber);	
+			_event.guiDisplay();
+		}
 		// else do nothing, channel is disabled or a race is not in session
 	}
 	

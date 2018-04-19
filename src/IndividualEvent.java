@@ -89,4 +89,24 @@ public class IndividualEvent implements EventInterface{
 		}
 		
 	}
+	@Override
+	public void guiDisplay() {
+		GUI.queueScreen.setText("Waiting to race:\n"); // fresh screen
+		Iterator<Racer> it = WaitingToRace.iterator();
+		int count = 0;
+		while(count <3 && it.hasNext()) {
+			Racer n = it.next();
+			GUI.queueScreen.append(n._bibNum +"\n");
+			++count; 
+		}
+		GUI.queueScreen.append("\nIn The Race:\n");
+		it = inTheRace.iterator();
+		while(it.hasNext()) {
+			Racer n = it.next();
+			GUI.queueScreen.append(n._bibNum +"\n");
+		}
+		GUI.queueScreen.append("\nFinished:\n");
+		if(!finishers.isEmpty()) GUI.queueScreen.append(finishers.peek()._bibNum);
+		
+	}
 }

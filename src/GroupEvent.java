@@ -165,4 +165,10 @@ public class GroupEvent implements EventInterface {
 		}
 	}
 
+	@Override
+	public void guiDisplay() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

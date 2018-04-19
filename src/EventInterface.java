@@ -10,4 +10,5 @@ Queue<Racer> moveAll();
 void dnf();
 void swap();
 void clear(String bibNumber);
+void guiDisplay();
 }
