@@ -12,41 +12,46 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
-import java.awt.FlowLayout;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-
+/**
+ * @author bshepard
+ * Simulates the physical chronotimer: 
+ * Handles various button clicks and 
+ * communicates with the chronotimer interface
+ * as necessary. Has 2 text boxes- one is for the 
+ * race data itself the other is for the printer.
+ */
 public class GUI {
 
-	String userEntered = "";
 	private JButton number0, number1, number2, number3, number4, number5, number6, number7, number8, number9, astrix, poundSign;
-	JRadioButton ch_1, ch_2, ch_3,ch_4,ch_5,ch_6,ch_7,ch_8;
-	private String firstFunction;
-	JToggleButton tglbtnPower;
-	JButton tgbCH1, tgbCH2, tgbCH3,tgbCH4,tgbCH5,tgbCH6,tgbCH7,tgbCH8;
+	private JRadioButton ch_1, ch_2, ch_3,ch_4,ch_5,ch_6,ch_7,ch_8;
+	private String firstFunction,userEntered = "";
+	private JToggleButton tglbtnPower;
+	private JButton tgbCH1, tgbCH2, tgbCH3,tgbCH4,tgbCH5,tgbCH6,tgbCH7,tgbCH8;
+	
 	private JFrame frame;
 	private ArrayList<JButton> JButtons;
 	private ArrayList<JButton> keypad;
 	private ArrayList<JRadioButton> RButtons;
+	
 	public static JTextArea queueScreen;
 	public static JTextArea printScreen;
-	private String instruction;
+	
 	private String [] instructions = {"1 - CLR","2 - CONN","3 - DISC","4 - DNF",
 			"5 - ENDRUN", "6 - IND EVENT", "7 - PARA EVENT", "8 - GRP EVENT",
 			"9 - PARGRP EVENT", "10 - EXPORT","11 - FINISH","12 - NEWRUN","13 - NUM",
 			"14 - PRINT","15 - RESET", "16 - TIME","17 - START"};
+	
 	private CommandsInterface commandInt;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		new GUI();
 	}
 
 	/**
-	 * Create the application.
+	 * Constructs the buttons, adds functionality, layout,
+	 * actionlisteners, and an anonymous actionlistener for some
+	 * classes. 
 	 */
 	public GUI(){
 		commandInt = new ChronoTimer();
@@ -55,8 +60,6 @@ public class GUI {
 		keypad = new ArrayList<JButton>();
 		queueScreen = new JTextArea();
 		
-		instruction = "";
-
 		frame = new JFrame();
 		frame.setBounds(100, 100, 833, 614);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -368,6 +371,11 @@ public class GUI {
 		frame.setVisible(true);
 
 	}
+	/**
+	 * @author bshepard
+	 * Actionlistener for the toggle buttons.
+	 * Communicates with commands interface.
+	 */
 	private class toggleButtonHandler implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -380,9 +388,13 @@ public class GUI {
 			else if(e.getSource()== ch_7) commandInt.TOG(7);
 			else if(e.getSource()== ch_8) commandInt.TOG(8);
 			
-		}
-		
+		}		
 	}
+	/**
+	 * @author bshepard
+	 * ActionListeners for Trigger buttons.
+	 * Communicates with commands interface.
+	 */
 	private class triggerButtonHandler implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -394,9 +406,13 @@ public class GUI {
 			else if(e.getSource()== tgbCH6) commandInt.TRIG(6);
 			else if(e.getSource()== tgbCH7) commandInt.TRIG(7);
 			else if(e.getSource()== tgbCH8) commandInt.TRIG(8);
-		}
-		
+		}		
 	}
+	/**
+	 * @author bshepard
+	 * Manages the functionality of the gui buttons. 
+	 * Communicates with commandInterface.
+	 */
 	private class powerButtonHandler implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -430,6 +446,12 @@ public class GUI {
 		}
 		
 	}
+	/**
+	 * @author bshepard
+	 * Manages the keypad input.
+	 * Has 2 different layers programmed in depending on what 
+	 * function is called and how many variables are needed
+	 */
 	private class keypadHandler implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -467,11 +489,13 @@ public class GUI {
 		}
 		
 	}
-	public static void eventLog(String x) {
-		printScreen.append(x + "\n");
-	}
+	/**
+	 * Controller that connects with the commandsInterface
+	 * @param instruction1
+	 * @param instruction2
+	 */
 	private void functionController(String instruction1, String instruction2) {
-		System.out.printf("inst1 = %s, inst2 = %s\n", instruction1, instruction2); //for debugging
+		//System.out.printf("inst1 = %s, inst2 = %s\n", instruction1, instruction2); //for debugging
 		switch(instruction1) {
 		case "1": 
 			commandInt.CLR(instruction2);
@@ -530,5 +554,13 @@ public class GUI {
 			JOptionPane.showMessageDialog(null, instruction1+" is invalid.");
 			break;
 		}
+	}
+/**
+ * Allows the printer to use the printScreen to display messages
+ * @param message
+ */
+	public static void eventLog(String message) {
+		printScreen.append(message +"\n");
+		
 	}
 }

@@ -41,3 +41,28 @@ noName: 00:00:01.00
 Printing IND1
 noName: 00:00:01.00
 noName: DNF
+11:20:54.32 PRINTER POWER BUTTON
+11:20:56.88 Channel 1 was Enabled
+11:20:59.05 Channel 2 was Enabled
+11:21:00.79 starting IND
+11:21:06.65 Trigger channel 1
+11:21:07.96 Trigger channel 1
+11:21:08.89 Trigger channel 2
+11:21:10.74 Trigger channel 2
+11:21:12.66 Ending run
+Printing IND1
+noName: 00:00:02.00
+noName: 00:00:02.99
+11:23:29.61 PRINTER POWER BUTTON
+11:23:30.69 Channel 1 was Enabled
+11:23:31.70 Channel 2 was Enabled
+11:23:32.69 Trigger channel 1
+11:23:32.86 Trigger channel 1
+11:23:34.29 Trigger channel 1
+11:23:35.86 Trigger channel 2
+11:23:36.62 Trigger channel 2
+11:23:41.28 Ending run
+Printing IND1
+noName: 00:00:03.00
+noName: 00:00:03.99
+noName: DNF
