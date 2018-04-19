@@ -21,3 +21,23 @@
 21:06:25.46 PRINTER POWER BUTTON
 23:20:00.22 PRINTER POWER BUTTON
 11:20:59.89 PRINTER POWER BUTTON
+23:27:16.22 PRINTER POWER BUTTON
+Printing IND1
+noName: 00:00:02.00
+23:27:31.11 starting IND
+23:27:34.12 Trigger channel 1
+23:27:35.94 Trigger channel 2
+23:27:40.73 Ending run
+Printing IND2
+noName: 00:00:01.00
+23:30:52.30 PRINTER POWER BUTTON
+23:30:56.41 starting IND
+23:30:59.86 Channel 1 was Enabled
+23:31:00.96 Channel 2 was Enabled
+23:31:02.02 Trigger channel 1
+23:31:02.26 Trigger channel 1
+23:31:03.01 Trigger channel 2
+23:31:04.98 Ending run
+Printing IND1
+noName: 00:00:01.00
+noName: DNF

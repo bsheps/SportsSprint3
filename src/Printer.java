@@ -35,7 +35,9 @@ public class Printer {
  */
 	public void printThis(String message) {
 		System.out.println(message);
+		
 		if(_powerOn) {
+			GUI.eventLog(message);
 			printer.println(message);
 			printer.flush();
 		}

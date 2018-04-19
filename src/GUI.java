@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
 public class GUI {
+
 	String userEntered = "";
 	private JButton number0, number1, number2, number3, number4, number5, number6, number7, number8, number9, astrix, poundSign;
 	JRadioButton ch_1, ch_2, ch_3,ch_4,ch_5,ch_6,ch_7,ch_8;
@@ -28,7 +29,8 @@ public class GUI {
 	private ArrayList<JButton> JButtons;
 	private ArrayList<JButton> keypad;
 	private ArrayList<JRadioButton> RButtons;
-	public JTextArea queueScreen;
+	public static JTextArea queueScreen;
+	public static JTextArea printScreen;
 	private String instruction;
 	private String [] instructions = {"1 - CLR","2 - CONN","3 - DISC","4 - DNF",
 			"5 - ENDRUN", "6 - IND EVENT", "7 - PARA EVENT", "8 - GRP EVENT",
@@ -60,19 +62,25 @@ public class GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("ChronoTimer");
-
 		frame.setResizable(false);
 
+		triggerButtonHandler trighandle = new triggerButtonHandler();
+		toggleButtonHandler toghandler = new toggleButtonHandler();
+		keypadHandler keyhandle = new keypadHandler();
+		powerButtonHandler powerhandler = new powerButtonHandler();
+		
 		JButton btnFunction = new JButton("Function");
 		btnFunction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				queueScreen.setText("");
+				firstFunction=null;
+				userEntered ="";
 				for(JButton nums : keypad){
 					nums.setEnabled(true);
 				}
 				//queueScreen.append("Type the number of the instruction on the keypad \nto the right, then press the (#)\n");
 				for(String str: instructions) {
-					queueScreen.append(str + "\n");
+					printScreen.append(str + "\n");
 				}
 
 			}
@@ -90,8 +98,6 @@ public class GUI {
 		});
 		btnSwap.setBounds(12, 366, 94, 25);
 		frame.getContentPane().add(btnSwap);
-
-		toggleButtonHandler toghandler = new toggleButtonHandler();
 		
 		ch_1 = new JRadioButton("");
 		RButtons.add(ch_1);
@@ -159,8 +165,6 @@ public class GUI {
 		panel.setBounds(509, 255, 143, 136);
 		frame.getContentPane().add(panel);
 		panel.setLayout(new MigLayout("", "[][][]", "[][][][]"));
-
-		keypadHandler keyhandle = new keypadHandler();
 		
 		number1 = new JButton("1");
 		number1.addActionListener(keyhandle);
@@ -221,7 +225,6 @@ public class GUI {
 		keypad.add(poundSign);
 		panel.add(poundSign, "cell 2 3");
 		
-		triggerButtonHandler trighandle = new triggerButtonHandler();
 		tgbCH1 = new JButton("");
 		JButtons.add(tgbCH1);
 		tgbCH1.setBounds(240, 79, 25, 25);
@@ -280,7 +283,7 @@ public class GUI {
 		for(JButton nums : keypad){
 			nums.setEnabled(false);
 		}
-		powerButtonHandler powerhandler = new powerButtonHandler();
+		
 		tglbtnPower = new JToggleButton("Power");
 		tglbtnPower.addActionListener(powerhandler);
 		tglbtnPower.setBounds(12, 24, 94, 29);
@@ -352,12 +355,14 @@ public class GUI {
 		frame.getContentPane().add(label_8);
 		
 		
-		JTextArea printScreen = new JTextArea();
+		printScreen = new JTextArea();
 		printScreen.setWrapStyleWord(true);
 		printScreen.setLineWrap(true);
 		printScreen.setEditable(false);
+		
+		
 		JScrollPane scroll = new JScrollPane(printScreen);
-		scroll.setBounds(495, 75, 171, 136);
+		scroll.setBounds(495, 75, 250, 175);
 		frame.getContentPane().add(scroll);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);		
 		
@@ -446,23 +451,15 @@ public class GUI {
 						userEntered.equals("10")||userEntered.equals("13")||userEntered.equals("14"))) 
 				{
 					firstFunction = userEntered;
-					queueScreen.setText("Enter number");;
+					printScreen.append("Enter number:\n");;
 				}
 				else {
 					if(firstFunction == null) {
 						functionController(userEntered, null);
-						queueScreen.setText("");
-						for(String str: instructions) {
-							queueScreen.append(str + "\n");
-						}
 					}
 					else {
 						functionController(firstFunction, userEntered);
 						firstFunction = null;
-						queueScreen.setText("");
-						for(String str: instructions) {
-							queueScreen.append(str + "\n");
-						}
 					}
 						
 				}
@@ -470,6 +467,9 @@ public class GUI {
 			}
 		}
 		
+	}
+	public static void eventLog(String x) {
+		printScreen.append(x + "\n");
 	}
 	private void functionController(String instruction1, String instruction2) {
 		//System.out.printf("inst1 = %s, inst2 = %s\n", instruction1, instruction2); //for debugging
