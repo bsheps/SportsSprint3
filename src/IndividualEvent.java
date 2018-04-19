@@ -100,11 +100,7 @@ public class IndividualEvent implements EventInterface{
 			++count; 
 		}
 		GUI.queueScreen.append("\nIn The Race:\n");
-		it = inTheRace.iterator();
-		while(it.hasNext()) {
-			Racer n = it.next();
-			GUI.queueScreen.append(n._bibNum +"\n");
-		}
+		if(!inTheRace.isEmpty()) GUI.queueScreen.append(inTheRace.peek()._bibNum +"\n");
 		GUI.queueScreen.append("\nFinished:\n");
 		if(!finishers.isEmpty()) GUI.queueScreen.append(finishers.peek()._bibNum);
 		

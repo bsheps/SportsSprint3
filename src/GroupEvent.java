@@ -167,7 +167,8 @@ public class GroupEvent implements EventInterface {
 
 	@Override
 	public void guiDisplay() {
-		// TODO Auto-generated method stub
+		GUI.queueScreen.setText("Start Time:" + Time.time2formattedString(_startTime));
+		GUI.queueScreen.append("\nLast Finish\n"+finished.peek()._bibNum + " finish time: "+ finished.peek()._endTime);
 		
 	}
 
