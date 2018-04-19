@@ -168,7 +168,14 @@ public class GroupEvent implements EventInterface {
 	@Override
 	public void guiDisplay() {
 		GUI.queueScreen.setText("Start Time:" + Time.time2formattedString(_startTime));
-		GUI.queueScreen.append("\nLast Finish\n"+finished.peek()._bibNum + " finish time: "+ finished.peek()._endTime);
+		Iterator<Racer> it = finished.iterator();
+		for(int i = 0; i<finished.size()-1; ++i) {
+			it.next();
+		}
+		if(!finished.isEmpty()) {
+			Racer n = it.next();
+			GUI.queueScreen.append("\nLast Finish\n"+n._bibNum + " finish time: "+ Time.time2formattedString(n._endTime));
+		}
 		
 	}
 

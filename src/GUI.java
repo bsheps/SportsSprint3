@@ -72,7 +72,6 @@ public class GUI {
 		JButton btnFunction = new JButton("Function");
 		btnFunction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				queueScreen.setText("");
 				firstFunction=null;
 				userEntered ="";
 				for(JButton nums : keypad){
@@ -472,7 +471,7 @@ public class GUI {
 		printScreen.append(x + "\n");
 	}
 	private void functionController(String instruction1, String instruction2) {
-		//System.out.printf("inst1 = %s, inst2 = %s\n", instruction1, instruction2); //for debugging
+		System.out.printf("inst1 = %s, inst2 = %s\n", instruction1, instruction2); //for debugging
 		switch(instruction1) {
 		case "1": 
 			commandInt.CLR(instruction2);

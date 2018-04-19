@@ -119,20 +119,25 @@ public class ParaIndEvent implements EventInterface{
 	@Override
 	public void guiDisplay() {
 		GUI.queueScreen.setText("Next to start\n");
-		GUI.queueScreen.append(waitingToRace.peek()._bibNum+"\nIn The Race (Start Time):\n");
+		if(!waitingToRace.isEmpty())GUI.queueScreen.append(waitingToRace.peek()._bibNum+"\nIn The Race (Start Time):\n");
+		GUI.queueScreen.append("\nIn The Race ch1/2\n");
 		Iterator<Racer> it = channels12.iterator();
-		
 		while(it.hasNext()) {
 			Racer n = it.next();
 			GUI.queueScreen.append(n._bibNum+ " start: "+ Time.time2formattedString(n._startTime)+"\n");
 		}
+		GUI.queueScreen.append("\nIn The Race ch3/4\n");
 		it = channels34.iterator();
 		while(it.hasNext()) {
 			Racer n = it.next();
 			GUI.queueScreen.append(n._bibNum+ " start: "+ Time.time2formattedString(n._startTime)+"\n");
 		}
+		GUI.queueScreen.append("\nLast finisher\n");
 		it = finishers.iterator();
 		int cnt =0;
+		for(int i =0; i< finishers.size()-2; ++i) {
+			it.next();
+		}
 		while(it.hasNext()&&cnt <2) {
 			++cnt;
 			Racer n = it.next();
