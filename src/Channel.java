@@ -1,5 +1,5 @@
 
-public class Channel extends ChronoTimer{
+public class Channel {
 	private boolean[] channel = new boolean[13]; // 0 slot left empty
 	private String[] sensor = new String[13]; // 0 slot left empty
 	public Channel() {
