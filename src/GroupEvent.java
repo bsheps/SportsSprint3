@@ -36,7 +36,7 @@ public class GroupEvent implements EventInterface {
 	 * Allow adding a racer when no name/bibNumber is specified.
 	 */
 	public void addRacer() {
-		if (raceInSession) {System.out.println("GroupEvent.addRacer(): IllegalStateException");return;}
+		if (raceInSession || racers.size()>9999) {System.out.println("GroupEvent.addRacer(): IllegalStateException");return;}
 		racers.add(new Racer("Racer #" + racers.size() + 1));
 	}
 
@@ -52,7 +52,7 @@ public class GroupEvent implements EventInterface {
 	 */
 	@Override
 	public void addRacer(String bibNumber) {
-		if (raceInSession) {System.out.println("GroupEvent.addRacer(String): IllegalStateException");return;}
+		if (raceInSession|| racers.size()>9999) {System.out.println("GroupEvent.addRacer(String): IllegalStateException");return;}
 		racers.add(new Racer(bibNumber));
 	}
 
