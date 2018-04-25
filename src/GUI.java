@@ -167,7 +167,7 @@ public class GUI {
 		frame.getContentPane().add(btnPrinterPower);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(495, 337, 143, 136);
+		panel.setBounds(478, 337, 155, 146);
 		frame.getContentPane().add(panel);
 		
 		number1 = new JButton("1");
