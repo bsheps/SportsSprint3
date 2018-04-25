@@ -371,6 +371,7 @@ public class GUI {
 		textArea.setBackground(SystemColor.menu);
 		textArea.setBounds(665, 263, 132, 310);
 		frame.getContentPane().add(textArea);
+		textArea.setEditable(false);
 		
 		frame.setVisible(true);
 
