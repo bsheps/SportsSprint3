@@ -17,6 +17,8 @@ import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 /**
  * @author bshepard
  * Simulates the physical chronotimer: 
@@ -170,63 +172,106 @@ public class GUI {
 		
 		number1 = new JButton("1");
 		number1.addActionListener(keyhandle);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		keypad.add(number1);
-		panel.add(number1);
 
 		number2 = new JButton("2");
 		number2.addActionListener(keyhandle);
 		keypad.add(number2);
-		panel.add(number2);
 
 		number3 = new JButton("3");
 		number3.addActionListener(keyhandle);
 		keypad.add(number3);
-		panel.add(number3);
 
 		number4 = new JButton("4");
 		number4.addActionListener(keyhandle);
 		keypad.add(number4);
-		panel.add(number4);
 
 		number5 = new JButton("5");
 		number5.addActionListener(keyhandle);
 		keypad.add(number5);
-		panel.add(number5);
 
 		number6 = new JButton("6");
 		number6.addActionListener(keyhandle);
 		keypad.add(number6);
-		panel.add(number6);
 
 		number7 = new JButton("7");
 		number7.addActionListener(keyhandle);
 		keypad.add(number7);
-		panel.add(number7);
 
 		number8 = new JButton("8");
 		number8.addActionListener(keyhandle);
 		keypad.add(number8);
-		panel.add(number8);
 
 		number9 = new JButton("9");
 		number9.addActionListener(keyhandle);
 		keypad.add(number9);
-		panel.add(number9);
 
 		astrix = new JButton("*");
 		keypad.add(astrix);
-		panel.add(astrix);
 
 		number0 = new JButton("0");
 		number0.addActionListener(keyhandle);
 		keypad.add(number0);
-		panel.add(number0);
 		
 		poundSign = new JButton("#");
 		poundSign.addActionListener(keyhandle);
 		keypad.add(poundSign);
-		panel.add(poundSign);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(7)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(number1)
+							.addGap(4)
+							.addComponent(number2)
+							.addGap(6)
+							.addComponent(number3))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(number4)
+							.addGap(4)
+							.addComponent(number5)
+							.addGap(6)
+							.addComponent(number6))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(number7)
+							.addGap(4)
+							.addComponent(number8)
+							.addGap(6)
+							.addComponent(number9))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(astrix)
+							.addGap(4)
+							.addComponent(number0)
+							.addGap(4)
+							.addComponent(poundSign))))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(7)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(number1)
+						.addComponent(number2)
+						.addComponent(number3))
+					.addGap(4)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(number4)
+						.addComponent(number5)
+						.addComponent(number6))
+					.addGap(4)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(number7)
+						.addComponent(number8)
+						.addComponent(number9))
+					.addGap(4)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(astrix)
+						.addComponent(number0)
+						.addComponent(poundSign)))
+		);
+		panel.setLayout(gl_panel);
 		
 		tgbCH1 = new JButton("");
 		JButtons.add(tgbCH1);
