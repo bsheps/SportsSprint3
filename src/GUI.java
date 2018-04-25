@@ -12,6 +12,8 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
+import java.awt.GridLayout;
+
 import javax.swing.JScrollPane;
 import java.awt.Color;
 import java.awt.SystemColor;
@@ -163,9 +165,9 @@ public class GUI {
 		frame.getContentPane().add(btnPrinterPower);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(495, 337, 143, 136);
+		panel.setBounds(495, 300, 175, 200);
 		frame.getContentPane().add(panel);
-		panel.setLayout(new MigLayout("", "[][][]", "[][][][]"));
+		panel.setLayout(new GridLayout(4,3));
 
 		number1 = new JButton("1");
 		number1.addActionListener(keyhandle);
@@ -369,7 +371,7 @@ public class GUI {
 
 		JTextArea textArea = new JTextArea(instructions);
 		textArea.setBackground(SystemColor.menu);
-		textArea.setBounds(665, 263, 132, 310);
+		textArea.setBounds(680, 263, 132, 310);
 		frame.getContentPane().add(textArea);
 		textArea.setEditable(false);
 
