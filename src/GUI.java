@@ -127,7 +127,7 @@ public class GUI {
 		ch_4.setBounds(291, 223, 25, 25);
 		frame.getContentPane().add(ch_4);
 		ch_4.addActionListener(toghandler);
-
+//
 		ch_5 = new JRadioButton("");
 		RButtons.add(ch_5);
 		ch_5.setBounds(344, 116, 25, 25);
