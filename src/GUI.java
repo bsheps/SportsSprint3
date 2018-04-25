@@ -15,13 +15,6 @@ import java.awt.Font;
 import javax.swing.JScrollPane;
 import java.awt.Color;
 import java.awt.SystemColor;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 /**
  * @author bshepard
  * Simulates the physical chronotimer: 
@@ -170,68 +163,68 @@ public class GUI {
 		frame.getContentPane().add(btnPrinterPower);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(478, 337, 150, 146);
+		panel.setBounds(495, 337, 143, 136);
 		frame.getContentPane().add(panel);
+		panel.setLayout(new MigLayout("", "[][][]", "[][][][]"));
 		
 		number1 = new JButton("1");
 		number1.addActionListener(keyhandle);
-		panel.setLayout(new MigLayout("", "[41px][41px][45px]", "[29px][29px][29px][29px]"));
 		keypad.add(number1);
-		panel.add(number1, "cell 0 0,alignx left,aligny top");
-		
-				number6 = new JButton("6");
-				number6.addActionListener(keyhandle);
-				
-						number4 = new JButton("4");
-						number4.addActionListener(keyhandle);
-						
-								number3 = new JButton("3");
-								number3.addActionListener(keyhandle);
-								
-										number2 = new JButton("2");
-										number2.addActionListener(keyhandle);
-										keypad.add(number2);
-										panel.add(number2, "cell 1 0,alignx left,aligny top");
-								keypad.add(number3);
-								panel.add(number3, "cell 2 0,alignx center,aligny top");
-						keypad.add(number4);
-						panel.add(number4, "cell 0 1,alignx left,aligny top");
-				
-						number5 = new JButton("5");
-						number5.addActionListener(keyhandle);
-						keypad.add(number5);
-						panel.add(number5, "cell 1 1,alignx left,aligny top");
-				keypad.add(number6);
-				panel.add(number6, "cell 2 1,alignx center,aligny top");
-		
-				number0 = new JButton("0");
-				number0.addActionListener(keyhandle);
-				
-						number8 = new JButton("8");
-						number8.addActionListener(keyhandle);
-						
-								number7 = new JButton("7");
-								number7.addActionListener(keyhandle);
-								keypad.add(number7);
-								panel.add(number7, "cell 0 2,alignx left,aligny top");
-						keypad.add(number8);
-						panel.add(number8, "cell 1 2,alignx left,aligny top");
-				
-						number9 = new JButton("9");
-						number9.addActionListener(keyhandle);
-						keypad.add(number9);
-						panel.add(number9, "cell 2 2,alignx center,aligny top");
-				
-						astrix = new JButton("*");
-						keypad.add(astrix);
-						panel.add(astrix, "cell 0 3,alignx left,aligny top");
-				keypad.add(number0);
-				panel.add(number0, "cell 1 3,alignx left,aligny top");
+		panel.add(number1, "cell 0 0");
+
+		number2 = new JButton("2");
+		number2.addActionListener(keyhandle);
+		keypad.add(number2);
+		panel.add(number2, "cell 1 0,growx");
+
+		number3 = new JButton("3");
+		number3.addActionListener(keyhandle);
+		keypad.add(number3);
+		panel.add(number3, "cell 2 0,growx");
+
+		number4 = new JButton("4");
+		number4.addActionListener(keyhandle);
+		keypad.add(number4);
+		panel.add(number4, "cell 0 1");
+
+		number5 = new JButton("5");
+		number5.addActionListener(keyhandle);
+		keypad.add(number5);
+		panel.add(number5, "cell 1 1");
+
+		number6 = new JButton("6");
+		number6.addActionListener(keyhandle);
+		keypad.add(number6);
+		panel.add(number6, "cell 2 1,growx");
+
+		number7 = new JButton("7");
+		number7.addActionListener(keyhandle);
+		keypad.add(number7);
+		panel.add(number7, "cell 0 2");
+
+		number8 = new JButton("8");
+		number8.addActionListener(keyhandle);
+		keypad.add(number8);
+		panel.add(number8, "cell 1 2");
+
+		number9 = new JButton("9");
+		number9.addActionListener(keyhandle);
+		keypad.add(number9);
+		panel.add(number9, "cell 2 2,growx");
+
+		astrix = new JButton("*");
+		keypad.add(astrix);
+		panel.add(astrix, "cell 0 3");
+
+		number0 = new JButton("0");
+		number0.addActionListener(keyhandle);
+		keypad.add(number0);
+		panel.add(number0, "cell 1 3");
 		
 		poundSign = new JButton("#");
 		poundSign.addActionListener(keyhandle);
 		keypad.add(poundSign);
-		panel.add(poundSign, "cell 2 3,alignx center,aligny top");
+		panel.add(poundSign, "cell 2 3");
 		
 		tgbCH1 = new JButton("");
 		JButtons.add(tgbCH1);
