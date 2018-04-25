@@ -30,17 +30,17 @@ public class GUI {
 	private String firstFunction,userEntered = "";
 	private JToggleButton tglbtnPower;
 	private JButton tgbCH1, tgbCH2, tgbCH3,tgbCH4,tgbCH5,tgbCH6,tgbCH7,tgbCH8;
-	
+
 	private JFrame frame;
 	private ArrayList<JButton> JButtons;
 	private ArrayList<JButton> keypad;
 	private ArrayList<JRadioButton> RButtons;
-	
+
 	public static JTextArea queueScreen;
 	public static JTextArea printScreen;
-	
+
 	private String instructions = "1 - CLR\n2 - CONN\n3 - DISC\n4 - DNF\n5 - ENDRUN\n6 - IND EVENT\n7 - PARA EVENT\n8 - GRP EVENT\n9 - PARGRP EVENT\n10 - EXPORT\n11 - FINISH\n12 - NEWRUN\n13 - NUM\n14 - PRINT\n15 - RESET\n16 - TIME\n17 - START";
-	
+
 	private CommandsInterface commandInt;
 
 	public static void main(String[] args) {
@@ -58,7 +58,7 @@ public class GUI {
 		RButtons = new ArrayList<JRadioButton>();
 		keypad = new ArrayList<JButton>();
 		queueScreen = new JTextArea();
-		
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 833, 639);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,7 +70,7 @@ public class GUI {
 		toggleButtonHandler toghandler = new toggleButtonHandler();
 		keypadHandler keyhandle = new keypadHandler();
 		powerButtonHandler powerhandler = new powerButtonHandler();
-		
+
 		JButton btnFunction = new JButton("Function");
 		btnFunction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,10 +79,10 @@ public class GUI {
 				for(JButton nums : keypad){
 					nums.setEnabled(true);
 				}
-//				//queueScreen.append("Type the number of the instruction on the keypad \nto the right, then press the (#)\n");
-//				for(String str: instructions) {
-//					printScreen.append(str + "\n");
-//				}
+				//				//queueScreen.append("Type the number of the instruction on the keypad \nto the right, then press the (#)\n");
+				//				for(String str: instructions) {
+				//					printScreen.append(str + "\n");
+				//				}
 
 			}
 		});
@@ -99,19 +99,19 @@ public class GUI {
 		});
 		btnSwap.setBounds(12, 366, 94, 25);
 		frame.getContentPane().add(btnSwap);
-		
+
 		ch_1 = new JRadioButton("");
 		RButtons.add(ch_1);
 		ch_1.setBounds(240, 116, 25, 25);
 		frame.getContentPane().add(ch_1);
 		ch_1.addActionListener(toghandler);
-		
+
 		ch_2 = new JRadioButton("");
 		RButtons.add(ch_2);
 		ch_2.setBounds(240, 223, 25, 25);
 		frame.getContentPane().add(ch_2);
 		ch_2.addActionListener(toghandler);
-		
+
 		ch_3 = new JRadioButton("");
 		RButtons.add(ch_3);
 		ch_3.setBounds(291, 116, 25, 25);
@@ -166,7 +166,7 @@ public class GUI {
 		panel.setBounds(495, 337, 143, 136);
 		frame.getContentPane().add(panel);
 		panel.setLayout(new MigLayout("", "[][][]", "[][][][]"));
-		
+
 		number1 = new JButton("1");
 		number1.addActionListener(keyhandle);
 		keypad.add(number1);
@@ -220,12 +220,12 @@ public class GUI {
 		number0.addActionListener(keyhandle);
 		keypad.add(number0);
 		panel.add(number0, "cell 1 3");
-		
+
 		poundSign = new JButton("#");
 		poundSign.addActionListener(keyhandle);
 		keypad.add(poundSign);
 		panel.add(poundSign, "cell 2 3");
-		
+
 		tgbCH1 = new JButton("");
 		JButtons.add(tgbCH1);
 		tgbCH1.setBounds(240, 79, 25, 25);
@@ -255,7 +255,7 @@ public class GUI {
 		tgbCH2.setBounds(240, 186, 25, 25);
 		frame.getContentPane().add(tgbCH2);
 		tgbCH2.addActionListener(trighandle);
-		
+
 		tgbCH4 = new JButton("");
 		JButtons.add(tgbCH4);
 		tgbCH4.setBounds(291, 186, 25, 25);
@@ -284,7 +284,7 @@ public class GUI {
 		for(JButton nums : keypad){
 			nums.setEnabled(false);
 		}
-		
+
 		tglbtnPower = new JToggleButton("Power");
 		tglbtnPower.addActionListener(powerhandler);
 		tglbtnPower.setBounds(12, 24, 94, 29);
@@ -354,25 +354,25 @@ public class GUI {
 		label_8.setFont(new Font("Tahoma", Font.BOLD, 14));
 		label_8.setBounds(396, 163, 25, 25);
 		frame.getContentPane().add(label_8);
-		
-		
+
+
 		printScreen = new JTextArea();
 		printScreen.setWrapStyleWord(true);
 		printScreen.setLineWrap(true);
 		printScreen.setEditable(false);
-		
-		
+
+
 		JScrollPane scroll = new JScrollPane(printScreen);
 		scroll.setBounds(495, 75, 250, 175);
 		frame.getContentPane().add(scroll);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);		
-		
+
 		JTextArea textArea = new JTextArea(instructions);
 		textArea.setBackground(SystemColor.menu);
 		textArea.setBounds(665, 263, 132, 310);
 		frame.getContentPane().add(textArea);
 		textArea.setEditable(false);
-		
+
 		frame.setVisible(true);
 
 	}
@@ -392,7 +392,7 @@ public class GUI {
 			else if(e.getSource()== ch_6) commandInt.TOG(6);
 			else if(e.getSource()== ch_7) commandInt.TOG(7);
 			else if(e.getSource()== ch_8) commandInt.TOG(8);
-			
+
 		}		
 	}
 	/**
@@ -429,7 +429,7 @@ public class GUI {
 				for(JRadioButton rb : RButtons) {
 					rb.setEnabled(true);
 				}
-				
+
 				for(JButton nums : keypad){
 					nums.setEnabled(false);
 				}
@@ -447,9 +447,9 @@ public class GUI {
 				}
 				queueScreen.setText("");
 			}
-			
+
 		}
-		
+
 	}
 	/**
 	 * @author bshepard
@@ -487,12 +487,12 @@ public class GUI {
 						functionController(firstFunction, userEntered);
 						firstFunction = null;
 					}
-						
+
 				}
 				userEntered = "";
 			}
 		}
-		
+
 	}
 	/**
 	 * Controller that connects with the commandsInterface
@@ -560,12 +560,12 @@ public class GUI {
 			break;
 		}
 	}
-/**
- * Allows the printer to use the printScreen to display messages
- * @param message
- */
+	/**
+	 * Allows the printer to use the printScreen to display messages
+	 * @param message
+	 */
 	public static void eventLog(String message) {
 		printScreen.append(message +"\n");
-		
+
 	}
 }
