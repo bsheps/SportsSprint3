@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JScrollPane;
+import java.awt.Color;
+import java.awt.SystemColor;
 /**
  * @author bshepard
  * Simulates the physical chronotimer: 
@@ -37,10 +39,7 @@ public class GUI {
 	public static JTextArea queueScreen;
 	public static JTextArea printScreen;
 	
-	private String [] instructions = {"1 - CLR","2 - CONN","3 - DISC","4 - DNF",
-			"5 - ENDRUN", "6 - IND EVENT", "7 - PARA EVENT", "8 - GRP EVENT",
-			"9 - PARGRP EVENT", "10 - EXPORT","11 - FINISH","12 - NEWRUN","13 - NUM",
-			"14 - PRINT","15 - RESET", "16 - TIME","17 - START"};
+	private String instructions = "1 - CLR\n2 - CONN\n3 - DISC\n4 - DNF\n5 - ENDRUN\n6 - IND EVENT\n7 - PARA EVENT\n8 - GRP EVENT\n9 - PARGRP EVENT\n10 - EXPORT\n11 - FINISH\n12 - NEWRUN\n13 - NUM\n14 - PRINT\n15 - RESET\n16 - TIME\n17 - START";
 	
 	private CommandsInterface commandInt;
 
@@ -61,7 +60,7 @@ public class GUI {
 		queueScreen = new JTextArea();
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 833, 614);
+		frame.setBounds(100, 100, 833, 639);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("ChronoTimer");
@@ -80,10 +79,10 @@ public class GUI {
 				for(JButton nums : keypad){
 					nums.setEnabled(true);
 				}
-				//queueScreen.append("Type the number of the instruction on the keypad \nto the right, then press the (#)\n");
-				for(String str: instructions) {
-					printScreen.append(str + "\n");
-				}
+//				//queueScreen.append("Type the number of the instruction on the keypad \nto the right, then press the (#)\n");
+//				for(String str: instructions) {
+//					printScreen.append(str + "\n");
+//				}
 
 			}
 		});
@@ -150,7 +149,7 @@ public class GUI {
 		ch_8.addActionListener(toghandler);
 
 		queueScreen.setEditable(false);
-		queueScreen.setBounds(185, 255, 278, 300);
+		queueScreen.setBounds(185, 263, 278, 310);
 		frame.getContentPane().add(queueScreen);
 
 		JButton btnPrinterPower = new JButton("Printer Power");
@@ -164,7 +163,7 @@ public class GUI {
 		frame.getContentPane().add(btnPrinterPower);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(509, 255, 143, 136);
+		panel.setBounds(495, 337, 143, 136);
 		frame.getContentPane().add(panel);
 		panel.setLayout(new MigLayout("", "[][][]", "[][][][]"));
 		
@@ -367,6 +366,11 @@ public class GUI {
 		scroll.setBounds(495, 75, 250, 175);
 		frame.getContentPane().add(scroll);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);		
+		
+		JTextArea textArea = new JTextArea(instructions);
+		textArea.setBackground(SystemColor.menu);
+		textArea.setBounds(665, 263, 132, 310);
+		frame.getContentPane().add(textArea);
 		
 		frame.setVisible(true);
 
