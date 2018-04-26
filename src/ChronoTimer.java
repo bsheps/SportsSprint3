@@ -24,8 +24,10 @@ public class ChronoTimer implements CommandsInterface {
 	ArrayList<String> _storageUnitEventName;
 
 	public void CLR(String bibNumber) {
-		_event.clear(bibNumber);
-
+		if(_event== null || !_raceInSession)_print.printThis(Time.getCurrentTimeString()+"CLR FAILED - no event selected or race not insession");
+		else 
+			_event.clear(bibNumber);
+		
 	}
 
 	public void CONN(String sensorType, int channel) {
@@ -39,8 +41,11 @@ public class ChronoTimer implements CommandsInterface {
 	}
 
 	public void DNF() {
+		if(_event== null || !_raceInSession) _print.printThis(Time.getCurrentTimeString()+"DNF FAILED - no event selected or race not insession");
+		else {
 		_event.dnf();
 		_print.printThis(Time.getCurrentTimeString()+ " Setting DNF for next trigger");
+		}
 	}
 
 	public void ENDRUN() {
@@ -83,9 +88,11 @@ public class ChronoTimer implements CommandsInterface {
 	}
 
 	public void FINISH() {
+		if(_event== null || !_raceInSession) _print.printThis(Time.getCurrentTimeString()+"FINISH FAILED - no event selected or race not insession");
+		else {
 		_event.trigger(2);
 		_print.printThis(Time.getCurrentTimeString()+ " Triggered channel: 2");
-
+		}
 	}
 
 	public void NEWRUN() {
@@ -108,9 +115,13 @@ public class ChronoTimer implements CommandsInterface {
 	}
 
 	public void NUM(String bibNumber) {
-		_event.addRacer(bibNumber);
-		_print.printThis(Time.getCurrentTimeString()+ " racer created with bib: "+bibNumber);
-		_event.guiDisplay();
+		if(_event == null || !_raceInSession) _print.printThis(Time.getCurrentTimeString()+ "NUM FAILED - no event selected or race not in session");
+		else {
+			_event.addRacer(bibNumber);
+			_print.printThis(Time.getCurrentTimeString()+ " racer created with bib: "+bibNumber);
+			_event.guiDisplay();
+
+		}
 	}
 
 
@@ -173,14 +184,16 @@ public class ChronoTimer implements CommandsInterface {
 	}
 
 	public void START() {
-		_event.trigger(1);
-		_print.printThis(Time.getCurrentTimeString()+ " START");
-
+		if(_event == null || !_raceInSession) _print.printThis(Time.getCurrentTimeString()+ " START FAILED - No race started");
+		else {
+			_event.trigger(1);
+			_print.printThis(Time.getCurrentTimeString()+ " START");
+		}
 	}
 
 	public void SWAP() {
 		if(!_raceInSession) _print.printThis(Time.getCurrentTimeString() + "No event in session");
-		else if(_storageUnitEventName.get(_storageUnitEventName.size()-1).equals("IND")) { 
+		else if(_storageUnitEventName.get(_storageUnitEventName.size()-1).equals("IND")&&_event != null && _raceInSession) { 
 			_event.swap();
 			_print.printThis(Time.getCurrentTimeString() + " Swapping racers");
 		}
@@ -202,7 +215,7 @@ public class ChronoTimer implements CommandsInterface {
 	
 	public void TRIG(int channelNumber) {
 		_print.printThis(Time.getCurrentTimeString()+ " Trigger channel "+channelNumber );
-		if(chan.isChannelEnabled(channelNumber) && _raceInSession) {
+		if(chan.isChannelEnabled(channelNumber) && _raceInSession && _event != null && _raceInSession) {
 			_event.trigger(channelNumber);	
 			_event.guiDisplay();
 		}
