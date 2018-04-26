@@ -8,14 +8,12 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JScrollPane;
-import java.awt.Color;
 import java.awt.SystemColor;
 /**
  * @author bshepard
@@ -558,7 +556,7 @@ public class GUI {
 			break;
 		default:
 			System.out.println(instruction1+" is invalid.");
-			JOptionPane.showMessageDialog(null, instruction1+" is invalid.");
+			printScreen.append(instruction1+" is invalid.\n");
 			break;
 		}
 	}
