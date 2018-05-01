@@ -3,6 +3,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * @author bjf
+ * 
+ *         This class needs an array to hold the competitors, because specific
+ *         channel triggers are correlated with the competitor that is to be
+ *         finished.
+ *
+ */
 public class ParalellGroupEvent implements EventInterface {
 
 	private Racer[] competitors = new Racer[8];
@@ -11,7 +19,9 @@ public class ParalellGroupEvent implements EventInterface {
 	private Queue<Racer> finished = new LinkedList<Racer>();
 	private LocalTime _startTime;
 
-	/* Add racer to the array
+	/*
+	 * Add racer to the array
+	 * 
 	 * @see EventInterface#addRacer(java.lang.String)
 	 */
 	@Override
@@ -51,7 +61,9 @@ public class ParalellGroupEvent implements EventInterface {
 		}
 	}
 
-	/* Move racers from array to finished queue
+	/*
+	 * Move racers from array to finished queue
+	 * 
 	 * @see EventInterface#moveAll()
 	 */
 	@Override
@@ -76,7 +88,9 @@ public class ParalellGroupEvent implements EventInterface {
 		throw new UnsupportedOperationException("A swap cannot be triggered for this race type...");
 	}
 
-	/* Remove a racer from the competitors array, and the finished queue
+	/*
+	 * Remove a racer from the competitors array, and the finished queue
+	 * 
 	 * @see EventInterface#clear(java.lang.String)
 	 */
 	@Override
@@ -104,7 +118,8 @@ public class ParalellGroupEvent implements EventInterface {
 		Iterator<Racer> it = finished.iterator();
 		while (it.hasNext()) {
 			Racer n = it.next();
-			GUI.queueScreen.append("\nLast Finish\n" + n.getBibNum() + " finish time: " + Time.time2formattedString(n.getEndTime()));
+			GUI.queueScreen.append(
+					"\nLast Finish\n" + n.getBibNum() + " finish time: " + Time.time2formattedString(n.getEndTime()));
 		}
 
 	}
