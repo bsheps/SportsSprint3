@@ -47,6 +47,17 @@ public class Racer {
 	}
 	
 	/**
+	 * @return null if not set yet, or a time if the racer has finished
+	 */
+	public LocalTime getEndTime() {
+		return _endTime;
+	}
+	
+	public String getBibNum() {
+		return _bibNum;
+	}
+	
+	/**
 	 * 
 	 * @return a printer friendly string of the racer's time
 	 */
