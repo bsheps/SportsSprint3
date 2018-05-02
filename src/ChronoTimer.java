@@ -70,7 +70,7 @@ public class ChronoTimer implements CommandsInterface {
 	}
 
 	public void EXPORT(int runNumber) {
-		if(runNumber>_storageUnit.size()) _print.printThis("EXPORT METHOD ERROR: Invalid run number; out of bounds exception");
+		if(runNumber==0 || runNumber>_storageUnit.size()) _print.printThis("EXPORT METHOD ERROR: Invalid run number; out of bounds exception");
 		else {
 			Gson exportProxy = new Gson();
 			String exportFilename = "RUN"+runNumber+".txt";
