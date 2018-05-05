@@ -115,4 +115,84 @@ class ParaIndJTest {
 		assertEquals(test.waitingToRace.size(),0);
 		assertEquals(test.finishers.size(),4);//shouldn't it be 2?
 	}
+	
+	@Test
+	void testdnf() {
+		test = new ParaIndEvent();
+		
+	}
+	
+	@Test
+	void testSwap() {
+		test = new ParaIndEvent();
+		test.addRacer("Racer1");
+		test.addRacer("Racer2");
+		
+	}
+	
+	@Test
+	void testClear() {
+		test = new ParaIndEvent();
+		for(int i=0;i<20;i++) {
+			test.addRacer(Integer.toString(i));
+		}
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),0);
+		assertEquals(test.waitingToRace.size(),20);
+		for(int i=0;i<5;i++) {
+			test.trigger(1);
+		}
+		assertEquals(test.channels12.size(),5);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),0);
+		assertEquals(test.waitingToRace.size(),15);
+		for(int i=0;i<3;i++) {
+			test.trigger(2);
+		}
+		assertEquals(test.channels12.size(),2);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),3);
+		assertEquals(test.waitingToRace.size(),15);
+		for(int i=0;i<3;i++) {
+			test.clear(Integer.toString(i));
+		}
+		assertEquals(test.channels12.size(),2);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),0);
+		assertEquals(test.waitingToRace.size(),15);
+		for(int i=3;i<20;i++) {
+			test.clear(Integer.toString(i));
+		}
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),0);
+		assertEquals(test.waitingToRace.size(),0);	
+	}
+	
+	@Test
+	void moreTests() {
+		test = new ParaIndEvent();
+		for(int i=0;i<20;i++) {
+			test.addRacer(Integer.toString(i));
+		}
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),0);
+		assertEquals(test.waitingToRace.size(),20);
+		for(int i=0;i<10;i++) {
+			test.trigger(1);
+		}
+		assertEquals(test.channels12.size(),10);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),0);
+		assertEquals(test.waitingToRace.size(),10);
+		for(int i=0;i<7;i++) {
+			test.trigger(2);
+		}
+		assertEquals(test.channels12.size(),3);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.finishers.size(),7);
+		assertEquals(test.waitingToRace.size(),10);
+	}
 }
