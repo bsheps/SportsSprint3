@@ -104,8 +104,15 @@ class ParaIndJTest {
 		assertEquals(test.channels12.size(),1);
 		assertEquals(test.channels34.size(),1);
 		assertEquals(test.waitingToRace.size(),0);
-		assertEquals(test.finishers.size(),2);
+		assertEquals(test.finishers.size(),2);//shouldn't it be 0?
 		test.trigger(2);
-		assertEquals(test.finishers.size(),3);//shouldn't it be 2?
+		assertEquals(test.finishers.size(),3);//shouldn't it be 1?
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),1);
+		test.trigger(4);
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.waitingToRace.size(),0);
+		assertEquals(test.finishers.size(),4);//shouldn't it be 2?
 	}
 }
