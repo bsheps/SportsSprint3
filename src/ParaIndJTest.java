@@ -69,6 +69,43 @@ class ParaIndJTest {
 		assertEquals(test.channels12.size(),0);
 		assertEquals(test.channels34.size(),0);
 		assertEquals(test.waitingToRace.size(),1);
+		test.trigger(3);
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),1);
+		assertEquals(test.waitingToRace.size(),0);
+		test.endEvent(false);
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),1);
+		assertEquals(test.waitingToRace.size(),0);
+		test.endEvent(true);
+		assertEquals(test.finishers.size(),1);
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.waitingToRace.size(),0);
 		
+	}
+	
+	@Test
+	void testmoveAll() {
+		test = new ParaIndEvent();
+		test.moveAll();
+		assertEquals(test.channels12.size(),0);
+		assertEquals(test.channels34.size(),0);
+		assertEquals(test.waitingToRace.size(),0);
+		assertEquals(test.finishers.size(),0);
+		test.addRacer("Racer1");
+		test.addRacer("Racer2");
+		assertEquals(test.waitingToRace.size(),2);
+		test.trigger(1);
+		test.trigger(3);
+		assertEquals(test.channels12.size(),1);
+		assertEquals(test.channels34.size(),1);
+		test.moveAll();
+		assertEquals(test.channels12.size(),1);
+		assertEquals(test.channels34.size(),1);
+		assertEquals(test.waitingToRace.size(),0);
+		assertEquals(test.finishers.size(),2);
+		test.trigger(2);
+		assertEquals(test.finishers.size(),3);//shouldn't it be 2?
 	}
 }
