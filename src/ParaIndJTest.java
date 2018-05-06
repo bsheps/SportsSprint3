@@ -17,7 +17,6 @@ class ParaIndJTest {
 		assertTrue(test.finishers.size()==0);
 		for(int i = 3; i <10000; i++) {
 			test.addRacer("i");
-
 		}
 		assertTrue(test.waitingToRace.size()==9999);
 
