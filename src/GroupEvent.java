@@ -16,10 +16,11 @@ import java.util.Iterator;
  *
  */
 public class GroupEvent implements EventInterface {
-
-	private LinkedList<Racer> racers, finished;
+	
+	
+	LinkedList<Racer> racers, finished; 
 	private LocalTime _startTime;
-	private boolean raceInSession;
+	boolean raceInSession;
 	private int namedRacers;
 
 	/**
