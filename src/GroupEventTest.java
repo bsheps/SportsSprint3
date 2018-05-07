@@ -89,23 +89,41 @@ class GroupEventTest {
 	@Test
 	void testDNF() {
 		test = new GroupEvent();
+		test.addRacer();
+		test.addRacer();
+		test.trigger(1);
+		test.trigger(2);
+		test.trigger(1);
+		assertEquals(test.racers.size(),1);
+		assertEquals(test.finished.size(),1);
+		test.dnf();
+		assertEquals(test.racers.size(),0);
+		assertEquals(test.finished.size(),2);
+		
+	}
+	
+	
+	@Test
+	void testSetRacerNum(){
+		test = new GroupEvent();
+		test.addRacer("Racer1");
+		test.addRacer("Racer2");
+		assertEquals(test.finished.size(),0);
+		assertEquals(test.namedRacers,0);
+//		test.trigger(1);
+//		test.setRacerNumber("");
+		
+	}
+	
+	@Test
+	void testClear(){
+		test = new GroupEvent();
 		
 	}
 	
 	@Test
 	void testSwap() {
 		test = new GroupEvent();
-		
-	}
-	
-	@Test
-	void testSetRacerNum(){
-		
-	}
-	
-	@Test
-	void testClear(){
-		
 	}
 	
 }

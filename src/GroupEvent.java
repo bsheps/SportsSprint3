@@ -21,7 +21,7 @@ public class GroupEvent implements EventInterface {
 	LinkedList<Racer> racers, finished; 
 	private LocalTime _startTime;
 	boolean raceInSession;
-	private int namedRacers;
+	int namedRacers;
 
 	/**
 	 * Simple constructor initializes instance variables.
