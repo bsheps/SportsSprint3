@@ -68,7 +68,11 @@ public class Racer implements Comparable<Object> {
 	public int compareTo(Object o) {
 		if (o instanceof Racer) {
 			Racer other = (Racer) o;
-			return results().compareTo(other.results());
+			if (_endTime != null) {
+				return results().compareTo(other.results());
+			} else {
+				return 1;
+			}
 		}
 		return 0;
 	}
