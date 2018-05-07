@@ -22,7 +22,17 @@ public class ChronoTimer implements CommandsInterface {
 	Printer _print;	
 	ArrayList<Queue<Racer>> _storageUnit;
 	ArrayList<String> _storageUnitEventName;
+	private Server displayServer;
 
+	public ChronoTimer() {
+		try {
+			displayServer = new Server();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void CLR(String bibNumber) {
 		if(_event== null || !_raceInSession)_print.printThis(Time.getCurrentTimeString()+"CLR FAILED - no event selected or race not insession");
 		else 
@@ -56,6 +66,7 @@ public class ChronoTimer implements CommandsInterface {
 			_storageUnit.add(tmp);
 			_print.printThis(Time.getCurrentTimeString()+ " Ending run");
 		}
+		displayServer.updateResults(_storageUnit.get(_storageUnit.size()-1));
 	}
 
 	public void EVENT(String eventName) {

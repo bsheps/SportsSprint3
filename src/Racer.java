@@ -1,71 +1,76 @@
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * @author bshepard Racers has 3 fields: name, startTime and endTime
- */
-public class Racer {
-	final DateTimeFormatter formatTime=DateTimeFormatter.ofPattern("HH:mm:ss.SS");;
-	String _bibNum;
-	LocalTime _startTime, _endTime;
-	/**
-	 * Constructs a racer
-	 * @param name
-	 */
-	public Racer(String name){
-		_startTime = _endTime = null;
-		_bibNum = name;
+public class Racer implements Comparable<Object> {
+	public static final DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss.SS");
+	public String _bibNum;
+	public String _name;
+	public LocalTime _startTime;
+	public LocalTime _endTime;
+
+	public Racer(String bibNum) {
+		_bibNum = bibNum;
 	}
-	public Racer(String name, LocalTime start) {
+
+	public Racer(String bibNum, LocalTime start) {
+		_bibNum = bibNum;
 		_startTime = start;
-		_endTime = null;
-		_bibNum = name;
 	}
-	/**
-	 * Sets the start time for racer
-	 * @param time
-	 */
+
+	public void setBibNum(String bibNum) {
+		_bibNum = bibNum;
+	}
+
+	public void setName(String name) {
+		_name = name;
+	}
+
 	public void startRace(LocalTime time) {
 		_startTime = time;
 	}
-	/**
-	 * Sets the end time for racer
-	 * @param time
-	 */
+
 	public void finishRace(LocalTime time) {
 		_endTime = time;
 	}
-	
-	/**
-	 * @param name: To update the racer's name
-	 */
-	public void setBibNum(String name) {
-		if(name == null) {
-			throw new IllegalArgumentException("Cannot set a name to be null.");
-		}
-		_bibNum = name;
-	}
-	
-	/**
-	 * @return null if not set yet, or a time if the racer has finished
-	 */
-	public LocalTime getEndTime() {
-		return _endTime;
-	}
-	
+
 	public String getBibNum() {
 		return _bibNum;
 	}
-	
-	/**
-	 * 
-	 * @return a printer friendly string of the racer's time
-	 */
-	public String results() {
-		if(_endTime == null && _startTime == null) return "CANCELLED";
-		else if(_endTime == null && _startTime != null)return "DNF";
-		else return LocalTime.ofNanoOfDay(_endTime.toNanoOfDay() - _startTime.toNanoOfDay()).format(formatTime);
+
+	public String getName() {
+		return _name;
 	}
 
+	public LocalTime getStartTime() {
+		return _startTime;
+	}
+
+	public LocalTime getEndTime() {
+		return _endTime;
+	}
+
+	public String results() {
+		if (_startTime == null) {
+			return "CANCELLED";
+		} else if (_endTime == null) {
+			return "DNF";
+		} else {
+			return LocalTime.ofNanoOfDay(_endTime.toNanoOfDay() - _startTime.toNanoOfDay()).format(formatTime);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return _bibNum + " : " + _name + " : " + results();
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		if (o instanceof Racer) {
+			Racer other = (Racer) o;
+			return results().compareTo(other.results());
+		}
+		return 0;
+	}
 
 }
