@@ -96,18 +96,17 @@ class ParallelGroupTest {
 		test = new ParalellGroupEvent();
 		test.addRacer("r1");
 		test.addRacer("r2");
-		assertEquals(test.numCompetitors,2);
+		test.addRacer("r3");
+		assertEquals(test.numCompetitors,3);
 		assertEquals(test.finished.size(),0);
 		test.trigger(1);
 		test.trigger(1);
-		assertEquals(test.finished.size(),1);
+		test.trigger(2);
+		assertEquals(test.finished.size(),2);
 		test.clear("r1");
 		assertEquals(test.competitors[0],null);
-		assertEquals(test.finished.size(),0);
+		assertEquals(test.finished.size(),1);
 		test.clear("r2");
-		System.out.println(test.competitors[0]);
-		System.out.println(test.competitors[1]);
-	//	assertEquals(test.competitors[0],null);
-		
+		assertEquals(test.competitors[1],null);
 	}
 }
