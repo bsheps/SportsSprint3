@@ -82,15 +82,6 @@ public class ParaIndEvent implements EventInterface{
 		finishers.addAll(waitingToRace);
 		return finishers;
 	}
-	
-//	public Queue<Racer> moveAll() {
-//		Queue<Racer> newQueue= (Queue<Racer>)new LinkedList<Racer>();
-//		newQueue.addAll(channels12);
-//		newQueue.addAll(channels34);
-//		newQueue.addAll(waitingToRace);
-//		return newQueue;
-//	}
-
 
 	public void dnf() {
 		// TODO Auto-generated method stub

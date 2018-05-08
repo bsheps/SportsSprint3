@@ -53,10 +53,10 @@ public class ParalellGroupEvent implements EventInterface {
 		}
 		else if(raceInSession){
 			LocalTime finishTime = Time.getCurrentTime();
-			if (competitors[channelNumber - 1].getEndTime() == null) {
+			if (competitors[channelNumber-1]!=null && competitors[channelNumber - 1].getEndTime() == null) {
 				competitors[channelNumber - 1].finishRace(finishTime);
 				finished.add(competitors[channelNumber - 1]);
-				//competitors[channelNumber - 1] = null;
+				competitors[channelNumber - 1] = null;
 			}
 		}
 	}
@@ -74,7 +74,7 @@ public class ParalellGroupEvent implements EventInterface {
 				racer = null;
 			}
 		}
-		return null;
+		return finished;
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class ParalellGroupEvent implements EventInterface {
 	public void clear(String bibNumber) {
 
 		for (Racer racer : competitors) {
-			if (racer.getBibNum().equals(bibNumber)) {
+			if (racer!=null && racer.getBibNum().equals(bibNumber)) {
 				racer = null;
 				break;
 			}

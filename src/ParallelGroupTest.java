@@ -24,36 +24,30 @@ class ParallelGroupTest {
 
 	@Test
 	void testTrigger() {
-		test  = new ParalellGroupEvent();
-		assertTrue(test.finished.size()==0);
-		for(int i=0;i<3;i++) {
+		test = new ParalellGroupEvent(); 
+		assertEquals(test.finished.size(),0);
+		assertTrue(test.numCompetitors==0);
+		for(int i=0;i<3;i++) { 
 			test.addRacer("Racer"+i);
 		}
-		System.out.println(test.raceInSession);
+		assertTrue(test.numCompetitors==3);
+		assertEquals(test.finished.size(),0);
 		test.trigger(1);
-		System.out.println(test.raceInSession);
+		for(int i=0;i<3;i++) {
+			assertTrue(test.competitors[i]._startTime == test._startTime) ;
+		}
 		test.trigger(1);
-		System.out.println(test.finished.size());
-		System.out.println(test.finished.peek()._endTime);
-//		test = new ParalellGroupEvent(); 
-//		assertEquals(test.finished.size(),0);
-//		assertTrue(test.numCompetitors==0);
-//		for(int i=0;i<3;i++) { 
-//			test.addRacer("Racer"+i);
-//		}
-//		assertTrue(test.numCompetitors==3);
-//		assertEquals(test.finished.size(),0);
-//		test.trigger(1);
-//		for(int i=0;i<3;i++) {
-//			assertTrue(test.competitors[i]._startTime == test._startTime) ;
-//			System.out.println(test.competitors[i]);
-//		}
-//		test.trigger(1);
-//		System.out.println(test.finished.size());
-//		test.trigger(2);
-//		System.out.println(test.finished.size());
-//		//assertEquals(test.finished.size(),1);
-		
+		assertEquals(test.finished.size(),1);
+		test.trigger(2);
+		assertEquals(test.finished.size(),2);
+		test.trigger(2);
+		assertEquals(test.finished.size(),2);
+		test.trigger(3);
+		assertEquals(test.finished.size(),3);	
+		for(int i=3;i<8;i++) {
+			test.trigger(i);
+		}
+		assertEquals(test.finished.size(),3);
 	}
 
 	@Test
@@ -71,15 +65,49 @@ class ParallelGroupTest {
 	@Test
 	void testDNF() {
 		test = new ParalellGroupEvent();
+		test.addRacer("R1");
+		test.addRacer("R2");
+		assertEquals(test.numCompetitors,2);
+		assertEquals(test.finished.size(),0);
+		test.trigger(1);
+		test.trigger(1);//R1 ended race
+		assertEquals(test.finished.size(),1);
+		test.dnf();
+		assertEquals(test.finished.size(),1);
+		
 	}
 
 	@Test
 	void testSwap() {
 		test = new ParalellGroupEvent();
+		test.addRacer("r1");
+		test.addRacer("r2");
+		test.trigger(1);
+		assertEquals(test.numCompetitors,2);
+		assertTrue(test.competitors[0]._bibNum == "r1");
+		assertTrue(test.competitors[1]._bibNum == "r2");
+		test.swap();
+		assertTrue(test.competitors[0]._bibNum == "r1");
+		assertTrue(test.competitors[1]._bibNum == "r2");
 	}
 
 	@Test
 	void testClear() {
 		test = new ParalellGroupEvent();
+		test.addRacer("r1");
+		test.addRacer("r2");
+		assertEquals(test.numCompetitors,2);
+		assertEquals(test.finished.size(),0);
+		test.trigger(1);
+		test.trigger(1);
+		assertEquals(test.finished.size(),1);
+		test.clear("r1");
+		assertEquals(test.competitors[0],null);
+		assertEquals(test.finished.size(),0);
+		test.clear("r2");
+		System.out.println(test.competitors[0]);
+		System.out.println(test.competitors[1]);
+	//	assertEquals(test.competitors[0],null);
+		
 	}
 }
