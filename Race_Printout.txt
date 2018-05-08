@@ -66,3 +66,33 @@ Printing IND1
 noName: 00:00:03.00
 noName: 00:00:03.99
 noName: DNF
+15:04:22.21 PRINTER POWER BUTTON
+15:04:27.16 Channel 1 was Enabled
+15:04:28.87 Channel 3 was Enabled
+15:04:30.26 Channel 5 was Enabled
+15:04:30.66 Channel 7 was Enabled
+15:04:31.54 Channel 8 was Enabled
+15:04:32.30 Channel 6 was Enabled
+15:04:33.22 Channel 4 was Enabled
+15:04:33.98 Channel 2 was Enabled
+15:04:34.98 Trigger channel 1
+15:04:37.45 Trigger channel 3
+15:04:40.97 Trigger channel 1
+15:04:43.46 Trigger channel 1
+15:04:50.12 Trigger channel 2
+15:25:27.07 PRINTER POWER BUTTON
+15:25:31.32 starting PARGRP
+15:25:43.37 racer created with bib: 11
+15:25:52.05 racer created with bib: 22
+15:25:58.35 racer created with bib: 33
+15:26:05.04 racer created with bib: 44
+15:26:10.37 Channel 1 was Enabled
+15:26:12.50 Channel 2 was Enabled
+15:26:21.46 Trigger channel 1
+15:26:26.85 Channel 3 was Enabled
+15:26:29.42 Channel 4 was Enabled
+15:26:33.90 Trigger channel 1
+15:26:44.04 Trigger channel 3
+15:26:46.47 Trigger channel 2
+15:26:47.51 Trigger channel 4
+15:27:05.12 Trigger channel 1

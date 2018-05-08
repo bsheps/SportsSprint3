@@ -42,21 +42,21 @@ public class ParalellGroupEvent implements EventInterface {
 	 */
 	@Override
 	public void trigger(int channelNumber) {
-		if (channelNumber < 1 || channelNumber > numCompetitors) {
-			// bad trigger, ignore
-			return;
-		} else if (!raceInSession && channelNumber == 1) {
+		if (channelNumber < 1 || channelNumber > numCompetitors) return;// bad trigger, ignore
+		else if (!raceInSession && channelNumber == 1) {
 			// start all times
 			_startTime = Time.getCurrentTime();
 			for (int i = 0; i < numCompetitors; i++) {
 				competitors[i].startRace(_startTime);
 			}
-		} else {
+			raceInSession = true;
+		}
+		else if(raceInSession){
 			LocalTime finishTime = Time.getCurrentTime();
-			if (competitors[channelNumber - 1].getEndTime() != null) {
+			if (competitors[channelNumber - 1].getEndTime() == null) {
 				competitors[channelNumber - 1].finishRace(finishTime);
 				finished.add(competitors[channelNumber - 1]);
-				competitors[channelNumber - 1] = null;
+				//competitors[channelNumber - 1] = null;
 			}
 		}
 	}
@@ -78,15 +78,10 @@ public class ParalellGroupEvent implements EventInterface {
 	}
 
 	@Override
-	public void dnf() {
-		throw new UnsupportedOperationException(
-				"A dnf cannot be triggered for this race type, because there is no \"next\" competitor");
-	}
+	public void dnf() {	/*shouldn't do anything */	}
 
 	@Override
-	public void swap() {
-		throw new UnsupportedOperationException("A swap cannot be triggered for this race type...");
-	}
+	public void swap() {	/*shouldn't do anything */	}
 
 	/*
 	 * Remove a racer from the competitors array, and the finished queue
