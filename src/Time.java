@@ -45,6 +45,7 @@ public class Time {
 	}
 	
 	public static LocalTime string2LocalTime(String[] time) {
+//		System.out.printf("s0: %s, s1: %s, s2: %s, s3: '%s'\n",time[0], time[1], time[2], time[3]);
 		return LocalTime.of(Integer.parseInt(time[0]), Integer.parseInt(time[1]), Integer.parseInt(time[2]), Integer.parseInt(time[3]));
 	}
 	/**
@@ -53,8 +54,6 @@ public class Time {
 	 */
 	public static String time2formattedString(LocalTime time){
 		if(time == null)return null;
-		return time.format(FORMAT_TIME);
+		return time.getHour()+":"+time.getMinute()+":"+time.getSecond()+"."+(time.getNano()>99? time.getNano()-999999900: time.getNano());
 	}
-	 
-
 }

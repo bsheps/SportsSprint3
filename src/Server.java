@@ -77,6 +77,7 @@ public class Server {
 		for (int i = 0; i < toShow.size(); i++) {
 			Racer r = racers.next();
 			dynamic.append("<tr><td>" + (i + 1) + "</td><td>" + r.getBibNum() + "</td><td>" + r.getName() + "</td><td>" + r.results() + "</td></tr>");
+//			System.out.println("r.results: " + r.results());
 		}
 
 		dynamic.append(pageEnd);

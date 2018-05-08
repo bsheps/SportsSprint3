@@ -1,12 +1,14 @@
+import java.time.Duration;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Racer implements Comparable<Object> {
-	public static final DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss.SS");
+	public static final DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
 	public String _bibNum;
 	public String _name;
 	public LocalTime _startTime;
 	public LocalTime _endTime;
+	
 
 	public Racer(String bibNum) {
 		_bibNum = bibNum;
@@ -55,7 +57,10 @@ public class Racer implements Comparable<Object> {
 		} else if (_endTime == null) {
 			return "DNF";
 		} else {
-			return LocalTime.ofNanoOfDay(_endTime.toNanoOfDay() - _startTime.toNanoOfDay()).format(formatTime);
+			System.out.println("start: "+ Time.time2formattedString(_startTime));
+			System.out.println("end: "+ Time.time2formattedString(_endTime));
+			System.out.println("Output: "+Time.time2formattedString(LocalTime.ofNanoOfDay(Duration.between(_startTime, _endTime).abs().toNanos())));
+			return Time.time2formattedString(LocalTime.ofNanoOfDay(_endTime.toNanoOfDay() - _startTime.toNanoOfDay()));
 		}
 	}
 
