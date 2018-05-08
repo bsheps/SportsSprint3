@@ -423,13 +423,13 @@ public class GUI {
 		public void actionPerformed(ActionEvent arg0) {
 			if(tglbtnPower.isSelected()) {
 				commandInt.POWER();
+				
 				for(JButton jb : JButtons) {
 					jb.setEnabled(true);
 				}
 				for(JRadioButton rb : RButtons) {
 					rb.setEnabled(true);
 				}
-
 				for(JButton nums : keypad){
 					nums.setEnabled(false);
 				}
@@ -441,6 +441,7 @@ public class GUI {
 				}
 				for(JRadioButton rb : RButtons) {
 					rb.setEnabled(false);
+					rb.setSelected(false);
 				}
 				for(JButton nums : keypad){
 					nums.setEnabled(false);
