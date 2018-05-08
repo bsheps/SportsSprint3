@@ -38,7 +38,7 @@ class ParallelGroupTest {
 //		test = new ParalellGroupEvent();
 //		assertEquals(test.finished.size(),0);
 //		assertTrue(test.numCompetitors==0);
-//		for(int i=0;i<3;i++) {
+//		for(int i=0;i<3;i++) { 
 //			test.addRacer("Racer"+i);
 //		}
 //		assertTrue(test.numCompetitors==3);
