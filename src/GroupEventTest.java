@@ -110,20 +110,50 @@ class GroupEventTest {
 		test.addRacer("Racer2");
 		assertEquals(test.finished.size(),0);
 		assertEquals(test.namedRacers,0);
-//		test.trigger(1);
-//		test.setRacerNumber("");
-		
+		test.setRacerNumber("Racer1");//cannot set name of racer if they didn't finish
+		assertEquals(test.finished.size(),0);
+		test.trigger(1);
+		test.setRacerNumber("Racer1");
+		assertEquals(test.finished.size(),0);
+		test.trigger(2);
+		assertEquals(test.finished.size(),1);
+		test.setRacerNumber("R1");
+		assertEquals(test.finished.get(0)._bibNum,"R1");
 	}
 	
 	@Test
 	void testClear(){
 		test = new GroupEvent();
+		test.addRacer("R1");
+		test.addRacer("R2");
+		assertEquals(test.racers.size(),2);
+		Racer r1 = test.racers.get(0);
+		Racer r2 = test.racers.get(1);
+		test.clear("R1");
+		assertTrue(test.racers.get(0)!=r1);
+		assertEquals(test.racers.size(),1);
+		assertTrue(test.racers.get(0)==r2);
+		test.clear("R2");
+		assertEquals(test.racers.size(),0);
+		
+		
 		
 	}
 	
 	@Test
 	void testSwap() {
 		test = new GroupEvent();
+		Racer r1 = new Racer("Racer1");
+		Racer r2 = new Racer("Racer2");
+		test.addRacer(r1._bibNum);
+		test.addRacer(r2._bibNum);
+		test.trigger(1);
+		test.trigger(1);
+		assertEquals(test.racers.size(),2);
+		assertTrue(test.racers.peek()._bibNum==r1._bibNum);
+		test.swap();//shouldn't do anything
+		assertTrue(test.racers.peek()._bibNum==r1._bibNum);
+	
 	}
 	
 }

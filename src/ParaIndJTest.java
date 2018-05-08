@@ -118,15 +118,30 @@ class ParaIndJTest {
 	@Test
 	void testdnf() {
 		test = new ParaIndEvent();
-		
+		Racer r1 = new Racer("Racer1");
+		Racer r2 = new Racer("Racer2");
+		test.addRacer(r1._bibNum);
+		test.addRacer(r2._bibNum);
+		test.trigger(1);
+		assertEquals(test.channels12.size(),1);
+		test.dnf();//dnf() currently doesn't do anything
+		assertEquals(test.channels12.size(),1);
+		assertEquals(test.finishers.size(),0);
 	}
 	
 	@Test
 	void testSwap() {
 		test = new ParaIndEvent();
-		test.addRacer("Racer1");
-		test.addRacer("Racer2");
-		
+		Racer r1 = new Racer("Racer1");
+		Racer r2 = new Racer("Racer2");
+		test.addRacer(r1._bibNum);
+		test.addRacer(r2._bibNum);
+		test.trigger(1);
+		test.trigger(1);
+		assertEquals(test.channels12.size(),2);
+		assertTrue(test.channels12.peek()._bibNum==r1._bibNum);
+		test.swap();//shouldn't do anything
+		assertTrue(test.channels12.peek()._bibNum==r1._bibNum);
 	}
 	
 	@Test
