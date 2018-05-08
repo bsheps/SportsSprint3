@@ -13,11 +13,11 @@ import java.util.Queue;
  */
 public class ParalellGroupEvent implements EventInterface {
 
-	private Racer[] competitors = new Racer[8];
-	private int numCompetitors = 0;
-	private boolean raceInSession = false;
-	private Queue<Racer> finished = new LinkedList<Racer>();
-	private LocalTime _startTime;
+	Racer[] competitors = new Racer[8];
+	int numCompetitors = 0;
+	boolean raceInSession = false;
+	Queue<Racer> finished = new LinkedList<Racer>();
+	LocalTime _startTime;
 
 	/*
 	 * Add racer to the array
