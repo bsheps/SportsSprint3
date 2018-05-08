@@ -35,7 +35,7 @@ class ParallelGroupTest {
 		test.trigger(1);
 		System.out.println(test.finished.size());
 		System.out.println(test.finished.peek()._endTime);
-//		test = new ParalellGroupEvent();
+//		test = new ParalellGroupEvent(); 
 //		assertEquals(test.finished.size(),0);
 //		assertTrue(test.numCompetitors==0);
 //		for(int i=0;i<3;i++) { 
