@@ -77,13 +77,11 @@ public class Racer implements Comparable<Object> {
 	public int compareTo(Object o) {
 		if (o instanceof Racer) {
 			Racer other = (Racer) o;
-			if (_endTime != null) {
-				return results().compareTo(other.results());
-			} else {
-				return 1;
+			if (this == other) {
+				return 0;
 			}
+			return results().compareTo(other.results());
 		}
 		return 0;
 	}
-
 }
