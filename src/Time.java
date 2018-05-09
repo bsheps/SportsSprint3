@@ -48,8 +48,7 @@ public class Time {
 //		System.out.printf("s0: %s, s1: %s, s2: %s, s3: '%s'\n",time[0], time[1], time[2], time[3]);
 		return LocalTime.of(Integer.parseInt(time[0]), Integer.parseInt(time[1]), Integer.parseInt(time[2]), Integer.parseInt(time[3]));
 	}
-	/**
-	 * @param time
+	/** @param time
 	 * @return a string of the time in HH:mm:ss.SS format
 	 */
 	public static String time2formattedString(LocalTime time){

@@ -11,7 +11,7 @@ import java.util.Queue;
  *         finished.
  *
  */
-public class ParalellGroupEvent implements EventInterface {
+public class ParallelGroupEvent implements EventInterface {
 
 	Racer[] competitors = new Racer[8];
 	int numCompetitors = 0;

@@ -96,3 +96,53 @@ noName: DNF
 15:26:46.47 Trigger channel 2
 15:26:47.51 Trigger channel 4
 15:27:05.12 Trigger channel 1
+22:33:44.29 PRINTER POWER BUTTON
+22:33:48.82 starting IND
+22:33:50.91 Channel 1 was Enabled
+22:33:51.85 Channel 2 was Enabled
+22:33:52.57 Trigger channel 1
+22:33:53.56 Trigger channel 1
+22:33:54.35 Trigger channel 1
+22:33:57.31 Trigger channel 2
+22:33:57.75 Trigger channel 2
+22:34:00.88 Ending run
+22:37:23.34 PRINTER POWER BUTTON
+22:37:27.70 starting IND
+22:37:29.07 Channel 1 was Enabled
+22:37:31.71 Channel 2 was Enabled
+22:37:40.28 racer created with bib: 123
+22:37:45.91 racer created with bib: 456
+22:37:49.97 racer created with bib: 789
+22:37:53.12 Trigger channel 1
+22:37:56.54 Trigger channel 1
+22:37:58.88 Trigger channel 2
+22:38:00.78 Trigger channel 1
+22:38:09.83 Swapping racers
+22:38:15.21 Trigger channel 2
+22:38:20.48 Ending run
+23:05:09.61 PRINTER POWER BUTTON
+23:05:16.86 Channel 1 was Enabled
+23:05:17.57 Channel 2 was Enabled
+23:05:34.20 Channel 3 was Enabled
+23:05:34.99 Channel 4 was Enabled
+23:05:46.26NUM FAILED - no event selected or race not in session
+23:05:55.86 starting PARIND
+23:06:01.45 racer created with bib: 123
+23:06:06.37 racer created with bib: 456
+23:06:14.58 racer created with bib: 789
+23:06:19.66 racer created with bib: 147
+23:06:24.15 racer created with bib: 258
+23:06:28.31 racer created with bib: 369
+23:06:39.13 Trigger channel 1
+23:06:42.00 Trigger channel 3
+23:06:44.67 Trigger channel 3
+23:06:46.71 Trigger channel 1
+23:06:50.07 Trigger channel 4
+23:06:51.79 Trigger channel 4
+23:06:52.66 Trigger channel 2
+23:06:54.51 Trigger channel 3
+23:06:55.71 Trigger channel 1
+23:06:57.44 Trigger channel 4
+23:06:59.19 Trigger channel 2
+23:07:06.27 racer created with bib: 159
+23:07:10.63 Ending run

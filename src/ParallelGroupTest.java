@@ -3,11 +3,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class ParallelGroupTest {
-	ParalellGroupEvent test;
+	ParallelGroupEvent test;
 
 	@Test
 	void testAddRacer() {
-		test = new ParalellGroupEvent();
+		test = new ParallelGroupEvent();
 		assertTrue(test.numCompetitors==0);
 		for(int i=0;i<8;i++) {
 			test.addRacer("Racer"+i);
@@ -21,7 +21,7 @@ class ParallelGroupTest {
 
 	@Test
 	void testTrigger() {
-		test = new ParalellGroupEvent(); 
+		test = new ParallelGroupEvent(); 
 		assertEquals(test.finished.size(),0);
 		assertTrue(test.numCompetitors==0);
 		for(int i=0;i<3;i++) { 
@@ -49,7 +49,7 @@ class ParallelGroupTest {
 
 	@Test
 	void testMoveAll() {
-		test = new ParalellGroupEvent();
+		test = new ParallelGroupEvent();
 		assertTrue(test.finished.size()==0);
 		for(int i=0;i<4;i++) {
 			test.addRacer("R"+i);
@@ -61,7 +61,7 @@ class ParallelGroupTest {
 
 	@Test
 	void testDNF() {
-		test = new ParalellGroupEvent();
+		test = new ParallelGroupEvent();
 		test.addRacer("R1");
 		test.addRacer("R2");
 		assertEquals(test.numCompetitors,2);
@@ -76,7 +76,7 @@ class ParallelGroupTest {
 
 	@Test
 	void testSwap() {
-		test = new ParalellGroupEvent();
+		test = new ParallelGroupEvent();
 		test.addRacer("r1");
 		test.addRacer("r2");
 		test.trigger(1);
@@ -90,7 +90,7 @@ class ParallelGroupTest {
 
 	@Test
 	void testClear() {
-		test = new ParalellGroupEvent();
+		test = new ParallelGroupEvent();
 		test.addRacer("r1");
 		test.addRacer("r2");
 		test.addRacer("r3");
