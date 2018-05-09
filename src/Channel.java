@@ -9,44 +9,27 @@ public class Channel {
 	}
 
 	public boolean Toggle(int ch) {
-		if (ch > 0 && ch < channel.length) {
-			channel[ch] = !channel[ch];
-			return channel[ch];
-		}
-		return false;
+		if (ch < 0 || ch >= channel.length) return false;
+		channel[ch] = !channel[ch];
+		return channel[ch];	
 	}
 
 	public boolean isChannelEnabled(int channelNumber) {
-		if (channelNumber > 0 && channelNumber < channel.length) {
-			return channel[channelNumber];
-		}
-		return false;
+		if (channelNumber < 0 || channelNumber >= channel.length)return false; 
+		return channel[channelNumber];
 	}
 
 	public boolean connectSensor(String sensortype, int chan) {
-		if (sensortype == null) {
-			return false;
-		}
-		if (chan > 0 && chan < channel.length) {
-			if (sensor[chan] != null) {
-				return false;
-				/* can't connect because something is already there */} else {
-				sensor[chan] = sensortype;
-				return true;
-			}
-		}
-		return false;
+		if (sensortype == null||sensor[chan] != null) return false;
+		if (chan < 0 || chan >= channel.length)return false; 
+		sensor[chan] = sensortype;
+		return true;
+		
 	}
 
 	public boolean disconnectSensor(int chan) {
-		if (chan > 0 && chan < channel.length) {
-			if (sensor[chan] == null)
-				return false;
-			else {
-				sensor[chan] = null;
-				return true;
-			}
-		}
-		return false;
+		if (chan < 0 || chan >= channel.length|| sensor[chan]==null)return false; 
+		sensor[chan] = null;
+		return true;
 	}
 }
