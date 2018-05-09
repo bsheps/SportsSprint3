@@ -60,10 +60,11 @@ public class Racer implements Comparable<Object> {
 		} else if (_endTime == null) {
 			return "DNF";
 		} else {
-			System.out.println("start: " + Time.time2formattedString(_startTime));
-			System.out.println("end: " + Time.time2formattedString(_endTime));
-			System.out.println("Output: " + Time.time2formattedString(
-					LocalTime.ofNanoOfDay(Duration.between(_startTime, _endTime).abs().toNanos())));
+//			For Debugging
+//			System.out.println("start: " + Time.time2formattedString(_startTime));
+//			System.out.println("end: " + Time.time2formattedString(_endTime));
+//			System.out.println("Output: " + Time.time2formattedString(
+//					LocalTime.ofNanoOfDay(Duration.between(_startTime, _endTime).abs().toNanos())));
 			return Time.time2formattedString(LocalTime.ofNanoOfDay(_endTime.toNanoOfDay() - _startTime.toNanoOfDay()));
 		}
 	}
