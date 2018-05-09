@@ -146,3 +146,261 @@ noName: DNF
 23:06:59.19 Trigger channel 2
 23:07:06.27 racer created with bib: 159
 23:07:10.63 Ending run
+23:29:50.50 PRINTER POWER BUTTON
+23:29:57.13 POWERING OFF- PENDING ITEMS:
+06:20:01.89 PRINTER POWER BUTTON
+06:20:04.84 Channel 4 was Enabled
+06:20:11.79 starting GRP
+06:20:23.56 racer created with bib: 9
+06:20:27.12 racer created with bib: 8
+06:20:29.73 racer created with bib: 7
+06:20:33.03 racer created with bib: 6
+06:20:36.18 racer created with bib: 5
+06:20:39.11 racer created with bib: 4
+06:20:42.05 racer created with bib: 3
+06:20:44.79 racer created with bib: 2
+06:20:47.36 racer created with bib: 1
+06:20:50.69 Trigger channel 1
+06:20:50.78 Trigger channel 1
+06:21:06.08 Trigger channel 4
+06:21:07.76 Trigger channel 2
+06:21:09.75 Trigger channel 2
+06:21:10.95 Trigger channel 2
+06:21:11.64 Trigger channel 2
+06:21:11.83 Trigger channel 2
+06:21:13.22 Trigger channel 2
+06:21:16.44 Ending run
+Printing GRP1
+9: 00:00:17.06
+8: 00:00:19.05
+7: 00:00:20.24
+6: 00:00:20.93
+5: 00:00:21.12
+4: 00:00:22.51
+3: DNF
+2: DNF
+1: DNF
+06:23:16.72 Channel 4 was Disabled
+06:23:17.35 Channel 2 was Disabled
+06:23:18.27 Channel 1 was Disabled
+06:23:23.75 Setting event to PARGRP
+06:23:28.50 Channel 1 was Enabled
+06:23:29.41 Channel 3 was Enabled
+06:23:30.61 Channel 5 was Enabled
+06:23:31.31 Channel 7 was Enabled
+06:23:32.18 Channel 2 was Enabled
+06:23:32.65 Channel 4 was Enabled
+06:23:33.14 Channel 6 was Enabled
+06:23:34.00 Channel 8 was Enabled
+06:23:43.00 starting PARGRP
+06:23:49.68 racer created with bib: 1
+06:23:53.66 racer created with bib: 2
+06:23:57.40 racer created with bib: 3
+06:24:02.30 racer created with bib: 4
+06:24:04.98 racer created with bib: 5
+06:24:08.37 racer created with bib: 6
+06:24:12.88 racer created with bib: 7
+06:24:15.76 racer created with bib: 8
+06:24:18.45 racer created with bib: 9
+06:24:46.66 Trigger channel 1
+06:24:56.79 Trigger channel 2
+06:24:57.81 Trigger channel 4
+06:24:59.23 Trigger channel 6
+06:25:00.29 Trigger channel 8
+06:25:02.69 Trigger channel 7
+06:25:03.29 Trigger channel 5
+06:25:03.78 Trigger channel 3
+06:25:04.42 Trigger channel 1
+06:25:10.88 Ending run
+Printing PARGRP2
+2: 00:00:10.13
+4: 00:00:11.15
+6: 00:00:12.57
+8: 00:00:13.63
+7: 00:00:16.03
+5: 00:00:16.63
+3: 00:00:17.12
+1: 00:00:17.76
+06:26:06.47 Channel 7 was Disabled
+06:26:06.88 Channel 5 was Disabled
+06:26:07.62 Channel 3 was Disabled
+06:26:08.10 Channel 1 was Disabled
+06:26:08.91 Channel 2 was Disabled
+06:26:10.06 Channel 4 was Disabled
+06:26:10.64 Channel 6 was Disabled
+06:26:11.76 Channel 8 was Disabled
+06:26:15.90 Setting event to PARGRP
+06:26:20.18 starting PARGRP
+06:26:21.93 Channel 1 was Enabled
+06:26:22.43 Channel 3 was Enabled
+06:26:23.22 Channel 5 was Enabled
+06:26:23.66 Channel 7 was Enabled
+06:26:24.91 Channel 2 was Enabled
+06:26:25.61 Channel 4 was Enabled
+06:26:26.19 Channel 6 was Enabled
+06:26:26.88 Channel 8 was Enabled
+06:26:33.33 racer created with bib: 1
+06:26:40.10 racer created with bib: 2
+06:26:43.78 racer created with bib: 4
+06:26:47.43 racer created with bib: 5
+06:26:51.29 Trigger channel 1
+06:26:52.77 Trigger channel 8
+06:26:57.43 Trigger channel 5
+06:26:58.38 Trigger channel 4
+06:27:00.49 Trigger channel 3
+06:27:03.24 Trigger channel 8
+06:27:05.15 Trigger channel 6
+06:27:05.67 Trigger channel 7
+06:27:08.72 Ending run
+Printing PARGRP3
+5: 00:00:07.08
+4: 00:00:09.19
+1: DNF
+2: DNF
+06:28:19.03 Channel 8 was Disabled
+06:28:19.55 Channel 6 was Disabled
+06:28:20.89 Channel 4 was Disabled
+06:28:21.57 Channel 2 was Disabled
+06:28:22.27 Channel 1 was Disabled
+06:28:22.92 Channel 3 was Disabled
+06:28:24.04 Channel 5 was Disabled
+06:28:24.63 Channel 7 was Disabled
+06:28:28.30 Channel 1 was Enabled
+06:28:28.89 Channel 3 was Enabled
+06:28:29.25 Channel 5 was Enabled
+06:28:29.57 Channel 7 was Enabled
+06:28:30.16 Channel 8 was Enabled
+06:28:30.50 Channel 6 was Enabled
+06:28:30.97 Channel 4 was Enabled
+06:28:31.58 Channel 2 was Enabled
+06:28:35.38 starting PARGRP
+06:28:40.98 racer created with bib: 11
+06:28:45.39 racer created with bib: 22
+06:28:49.18 racer created with bib: 33
+06:28:52.58 racer created with bib: 44
+06:28:55.48 racer created with bib: 55
+06:28:58.67 racer created with bib: 66
+06:29:01.82 racer created with bib: 77
+06:29:05.34 racer created with bib: 88
+06:29:07.98 Trigger channel 1
+06:29:10.71 Trigger channel 8
+06:29:11.65 Trigger channel 7
+06:29:13.06 Trigger channel 6
+06:29:13.97 Trigger channel 5
+06:29:14.84 Trigger channel 4
+06:29:15.51 Trigger channel 3
+06:29:17.92 Trigger channel 1
+06:29:19.88 Ending run
+Printing PARGRP4
+88: 00:00:02.73
+77: 00:00:03.67
+66: 00:00:05.08
+55: 00:00:05.99
+44: 00:00:06.87
+33: 00:00:07.53
+11: 00:00:09.94
+22: DNF
+06:35:26.58 Setting event to GRP
+06:35:30.55 starting GRP
+06:35:52.92 racer created with bib: 1
+06:35:55.82 racer created with bib: 2
+06:35:58.42 racer created with bib: 3
+06:36:01.47 racer created with bib: 4
+06:36:04.32 racer created with bib: 5
+06:36:06.72 Trigger channel 1
+06:36:12.27 Trigger channel 2
+06:36:13.41 Trigger channel 2
+06:36:13.58 Trigger channel 2
+06:36:14.71 Trigger channel 2
+06:36:18.48 Ending run
+Printing GRP5
+1: 00:00:05.54
+2: 00:00:06.68
+3: 00:00:06.85
+4: 00:00:07.98
+5: DNF
+06:37:25.96 Setting event to IND
+06:37:27.91 starting IND
+06:37:32.77 Trigger channel 1
+06:37:34.02 Trigger channel 1
+06:37:34.20 Trigger channel 1
+06:37:34.39 Trigger channel 1
+06:37:35.26 Trigger channel 2
+06:37:35.43 Trigger channel 2
+06:37:36.81 Trigger channel 2
+06:37:42.38 racer created with bib: 222
+06:37:44.44 Ending run
+Printing IND6
+noName: 00:00:02.50
+noName: 00:00:01.41
+noName: 00:00:02.61
+noName: DNF
+222: CANCELLED
+06:37:56.08 Setting event to PARIND
+06:38:00.05 starting PARIND
+06:38:02.30 Trigger channel 1
+06:38:04.05 Trigger channel 3
+06:38:05.71 Trigger channel 1
+06:38:06.25 Trigger channel 2
+06:38:07.10 Trigger channel 4
+06:38:07.58 Trigger channel 3
+06:38:11.80 racer created with bib: 9
+06:38:14.19 Ending run
+Printing PARIND7
+noName: 00:00:03.95
+noName: 00:00:03.05
+noName: DNF
+noName: DNF
+9: CANCELLED
+Printing GRP1
+9: 00:00:17.06
+8: 00:00:19.05
+7: 00:00:20.24
+6: 00:00:20.93
+5: 00:00:21.12
+4: 00:00:22.51
+3: DNF
+2: DNF
+1: DNF
+Printing PARGRP2
+2: 00:00:10.13
+4: 00:00:11.15
+6: 00:00:12.57
+8: 00:00:13.63
+7: 00:00:16.03
+5: 00:00:16.63
+3: 00:00:17.12
+1: 00:00:17.76
+Printing PARGRP3
+5: 00:00:07.08
+4: 00:00:09.19
+1: DNF
+2: DNF
+Printing PARGRP4
+88: 00:00:02.73
+77: 00:00:03.67
+66: 00:00:05.08
+55: 00:00:05.99
+44: 00:00:06.87
+33: 00:00:07.53
+11: 00:00:09.94
+22: DNF
+Printing GRP5
+1: 00:00:05.54
+2: 00:00:06.68
+3: 00:00:06.85
+4: 00:00:07.98
+5: DNF
+Printing IND6
+noName: 00:00:02.50
+noName: 00:00:01.41
+noName: 00:00:02.61
+noName: DNF
+222: CANCELLED
+Printing PARIND7
+noName: 00:00:03.95
+noName: 00:00:03.05
+noName: DNF
+noName: DNF
+9: CANCELLED
+PRINT METHOD ERROR: Invalid run number; out of bounds exception
