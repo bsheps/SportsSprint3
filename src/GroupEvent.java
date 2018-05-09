@@ -2,6 +2,7 @@ import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Iterator;
+
 /**
  * @author bjf
  * 
@@ -17,8 +18,7 @@ import java.util.Iterator;
  */
 public class GroupEvent implements EventInterface {
 
-
-	LinkedList<Racer> racers, finished; 
+	LinkedList<Racer> racers, finished;
 	private LocalTime _startTime;
 	boolean raceInSession;
 	int namedRacers;
@@ -37,7 +37,10 @@ public class GroupEvent implements EventInterface {
 	 * Allow adding a racer when no name/bibNumber is specified.
 	 */
 	public void addRacer() {
-		if (raceInSession || racers.size()>9999) {System.out.println("GroupEvent.addRacer(): IllegalStateException");return;}
+		if (raceInSession || racers.size() > 9999) {
+			System.out.println("GroupEvent.addRacer(): IllegalStateException");
+			return;
+		}
 		racers.add(new Racer("Racer #" + racers.size() + 1));
 	}
 
@@ -53,7 +56,10 @@ public class GroupEvent implements EventInterface {
 	 */
 	@Override
 	public void addRacer(String bibNumber) {
-		if (raceInSession|| racers.size()>9999) {System.out.println("GroupEvent.addRacer(String): IllegalStateException");return;}
+		if (raceInSession || racers.size() > 9999) {
+			System.out.println("GroupEvent.addRacer(String): IllegalStateException");
+			return;
+		}
 		racers.add(new Racer(bibNumber));
 	}
 
@@ -76,24 +82,38 @@ public class GroupEvent implements EventInterface {
 	public void trigger(int channelNumber) {
 		switch (channelNumber) {
 		case (1):
-			if (raceInSession) {System.out.println("GroupEvent.trigger(chnum): IllegalStateException - raceinsession == true");return;}
-		raceInSession = true;
-		_startTime = Time.getCurrentTime();
-		for (Racer racer : racers) {
-			racer.startRace(_startTime);
-		}
-		break;
+			if (raceInSession) {
+				System.out.println("GroupEvent.trigger(chnum): IllegalStateException - raceinsession == true");
+				return;
+			}
+			raceInSession = true;
+			_startTime = Time.getCurrentTime();
+			for (Racer racer : racers) {
+				racer.startRace(_startTime);
+			}
+			break;
 		case (2):
-			if (!raceInSession) {System.out.println("GroupEvent.trigger(chnum): IllegalStateException - raceinsession != true");return;}
-		LocalTime temp = Time.getCurrentTime();
-		racers.peek().finishRace(temp);
-		finished.add(racers.remove());
-		if (racers.isEmpty()) {
-			raceInSession = false;
+			if (!raceInSession) {
+				System.out.println("GroupEvent.trigger(chnum): IllegalStateException - raceinsession != true");
+				return;
+			}
+			LocalTime temp = Time.getCurrentTime();
+			if (!racers.isEmpty()) {
+				racers.peek().finishRace(temp);
+				finished.add(racers.remove());
+			} else {
+				Racer nextFinish = new Racer("no name", _startTime);
+				nextFinish.finishRace(temp);
+				finished.add(nextFinish);
+			}
+			// if (racers.isEmpty()) {
+			// raceInSession = false;
+			// }
+			break;
+		default: {
+			System.out.println("GroupEvent.trigger(chnum): IllegalStateException for ch " + channelNumber);
+			return;
 		}
-		break;
-		default:
-		{System.out.println("GroupEvent.trigger(chnum): IllegalStateException for ch "+channelNumber);return;}
 		}
 	}
 
@@ -119,12 +139,13 @@ public class GroupEvent implements EventInterface {
 	}
 
 	/*
-	 * This method was intended for use by IND race types only. 
+	 * This method was intended for use by IND race types only.
 	 * 
 	 * @see EventInterface#swap()
 	 */
 	@Override
-	public void swap() {/*DO NOTHING*/}
+	public void swap() {
+		/* DO NOTHING */}
 
 	/**
 	 * Sets the name of a finished racer. Each time this method is called, the name
@@ -145,25 +166,29 @@ public class GroupEvent implements EventInterface {
 	public void setRacerNumber(String name) {
 		if (namedRacers >= finished.size()) {
 			System.out.println("A finished racer is not available to be named.");
-		}
-		else if (name == null) {
+		} else if (name == null) {
 			System.out.println("Cannot set a name with a null value.");
-		}
-		else
+		} else
 			finished.get(namedRacers++).setBibNum(name);
 	}
 
 	@Override
 	public void clear(String bibNumber) {
 		Iterator<Racer> it = racers.iterator();
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			Racer n = it.next();
-			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+			if (n._bibNum.equals(bibNumber)) {
+				it.remove();
+				return;
+			}
 		}
 		it = finished.iterator();
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			Racer n = it.next();
-			if(n._bibNum.equals(bibNumber)) { it.remove(); return;}
+			if (n._bibNum.equals(bibNumber)) {
+				it.remove();
+				return;
+			}
 		}
 	}
 
@@ -171,12 +196,13 @@ public class GroupEvent implements EventInterface {
 	public void guiDisplay() {
 		GUI.queueScreen.setText("Start Time:" + Time.time2formattedString(_startTime));
 		Iterator<Racer> it = finished.iterator();
-		for(int i = 0; i<finished.size()-1; ++i) {
+		for (int i = 0; i < finished.size() - 1; ++i) {
 			it.next();
 		}
-		if(!finished.isEmpty()) {
+		if (!finished.isEmpty()) {
 			Racer n = it.next();
-			GUI.queueScreen.append("\nLast Finish\n"+n._bibNum + " finish time: "+ Time.time2formattedString(n._endTime));
+			GUI.queueScreen
+					.append("\nLast Finish\n" + n._bibNum + " finish time: " + Time.time2formattedString(n._endTime));
 		}
 
 	}
