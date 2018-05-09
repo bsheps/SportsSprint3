@@ -54,6 +54,6 @@ public class Time {
 	public static String time2formattedString(LocalTime time){
 		if(time == null)return null;
 		//return String.format("%2d",time.getHour())+":"+String.format("%2d",time.getMinute())+":"+String.format("%d", time.getSecond())+"."+(time.getNano()>99? time.getNano()-999999900: time.getNano());
-		return String.format("%2d:%2d:%2d.%2d",time.getHour(),time.getMinute(),time.getSecond(),(time.getNano()>99? time.getNano()-999999900: time.getNano()));
+		return String.format("%2d:%2d:%2d.%2d",time.getHour(),time.getMinute(),time.getSecond(),(time.getNano()>99? time.getNano()-999999900: time.getNano())).replaceAll("\\s+","0");
 	}
 }
