@@ -547,6 +547,19 @@ public class GUI {
 			commandInt.PRINT(Integer.parseInt(instruction2));
 			break;
 		case "15":
+			for(JButton jb : JButtons) {
+				jb.setEnabled(false);
+				jb.setEnabled(true);
+			}
+			for(JRadioButton rb : RButtons) {
+				rb.setEnabled(false);
+				rb.setSelected(false);
+				rb.setEnabled(true);
+			}
+			for(JButton nums : keypad){
+				nums.setEnabled(false);
+			}
+			queueScreen.setText("");
 			commandInt.RESET();
 			break;
 		case "16":
