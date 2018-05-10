@@ -11,11 +11,11 @@ public class Driver {
 		else {
 			try {
 				Simulator sim = new Simulator();
+				System.exit(0);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		System.exit(0);
 	}
 }
