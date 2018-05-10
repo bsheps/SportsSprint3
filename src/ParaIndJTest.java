@@ -1,12 +1,12 @@
-//import static org.junit.Assert.*;
-//import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
+//import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.Test;
 
-class ParaIndJTest {
+public class ParaIndJTest {
 	ParaIndEvent test;
 	@Test
-	void testAddRacers() {
+	public void testAddRacers() {
 		test = new ParaIndEvent();
 		assertTrue(test.waitingToRace.size()==0);
 		test.addRacer("1");
@@ -22,7 +22,7 @@ class ParaIndJTest {
 
 	}
 	@Test
-	void testTrigger1and2() {
+	public void testTrigger1and2() {
 		test = new ParaIndEvent();
 		test.trigger(4);
 		test.trigger(2);
@@ -37,7 +37,7 @@ class ParaIndJTest {
 		assertTrue(test.finishers.size()==1);
 	}
 	@Test
-	void testTrigger3and4() {
+	public void testTrigger3and4() {
 		test = new ParaIndEvent();
 		test.addRacer("1234");
 		test.trigger(4);
@@ -49,7 +49,7 @@ class ParaIndJTest {
 		assertTrue(test.finishers.size()==1);
 	}
 	@Test
-	void testTriggerOtherChnls() {
+	public void testTriggerOtherChnls() {
 		test = new ParaIndEvent();
 		for(int i =5; i<= 8 ;++i) {
 			test.trigger(i);
@@ -61,7 +61,7 @@ class ParaIndJTest {
 	}
 	
 	@Test
-	void testEndEvent() {
+	public void testEndEvent() {
 		test = new ParaIndEvent();
 		test.addRacer("name");
 		test.endEvent(true);
@@ -85,7 +85,7 @@ class ParaIndJTest {
 	}
 	
 	@Test
-	void testmoveAll() {
+	public void testmoveAll() {
 		test = new ParaIndEvent();
 		test.moveAll();
 		assertEquals(test.channels12.size(),0);
@@ -116,7 +116,7 @@ class ParaIndJTest {
 	}
 	
 	@Test
-	void testdnf() {
+	public void testdnf() {
 		test = new ParaIndEvent();
 		Racer r1 = new Racer("Racer1");
 		Racer r2 = new Racer("Racer2");
@@ -130,7 +130,7 @@ class ParaIndJTest {
 	}
 	
 	@Test
-	void testSwap() {
+	public void testSwap() {
 		test = new ParaIndEvent();
 		Racer r1 = new Racer("Racer1");
 		Racer r2 = new Racer("Racer2");
@@ -145,7 +145,7 @@ class ParaIndJTest {
 	}
 	
 	@Test
-	void testClear() {
+	public void testClear() {
 		test = new ParaIndEvent();
 		for(int i=0;i<20;i++) {
 			test.addRacer(Integer.toString(i));
@@ -185,7 +185,7 @@ class ParaIndJTest {
 	}
 	
 	@Test
-	void moreTests() {
+	public void moreTests() {
 		test = new ParaIndEvent();
 		for(int i=0;i<20;i++) {
 			test.addRacer(Integer.toString(i));

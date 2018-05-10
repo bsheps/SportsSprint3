@@ -1,15 +1,15 @@
-//import java.util.Queue;
-//import org.junit.Test;
+import java.util.Queue;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+//import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
-class IndividualEventJUnitTest {
+public class IndividualEventJUnitTest {
 	IndividualEvent n;
 	@Test
-	void testAddRacer() {
+	public void testAddRacer() {
 		n = new IndividualEvent();
 		n.addRacer("a");
 		n.addRacer("aname");
@@ -25,7 +25,7 @@ class IndividualEventJUnitTest {
 		assertEquals(m._bibNum, null);
 	}
 	@Test
-	void testTrigger() {
+	public void testTrigger() {
 		n = new IndividualEvent();
 		n.addRacer("a");
 		n.addRacer("aname");
@@ -65,7 +65,7 @@ class IndividualEventJUnitTest {
 		assertTrue(n.finishers.size()==5);
 	}
 	@Test
-	void testMoveAll() {
+	public void testMoveAll() {
 		n = new IndividualEvent();
 		n.addRacer("a");
 		n.addRacer("aname");
@@ -80,7 +80,7 @@ class IndividualEventJUnitTest {
 		assertTrue(g.size() == 3);
 	}
 	@Test
-	void testSwap() {
+	public void testSwap() {
 		n= new IndividualEvent();
 		Racer a = new Racer("uno");
 		Racer b = new Racer("dos");
@@ -97,7 +97,7 @@ class IndividualEventJUnitTest {
 		assertTrue(n.inTheRace.remove() == c);
 	}
 	@Test
-	void testCLR() {
+	public void testCLR() {
 		n= new IndividualEvent();
 		Racer a = new Racer("uno");
 		Racer b = new Racer("dos");
@@ -115,7 +115,7 @@ class IndividualEventJUnitTest {
 		n.clear("tres");
 		assertTrue(!n.finishers.contains(c));
 	}
-	void testDNF() {
+	public void testDNF() {
 		n= new IndividualEvent();
 		Racer a = new Racer("uno");
 		Racer b = new Racer("dos");

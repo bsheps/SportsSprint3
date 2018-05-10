@@ -1,15 +1,15 @@
-//import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertFalse;
-//import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+//import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.Test;
 
 import org.junit.Test;
-class GroupEventTest {
+public class GroupEventTest {
 	GroupEvent test;
 	@org.junit.Test
-	void testAddRacer() {
+	public void testAddRacer() {
 		test = new GroupEvent();
 		assertEquals(test.racers.size(),0);
 		assertEquals(test.finished.size(),0);
@@ -38,7 +38,7 @@ class GroupEventTest {
 	}
 
 	@Test
-	void testTrigger() {
+	public void testTrigger() {
 		test = new GroupEvent();
 		test.addRacer();
 		assertEquals(test.racers.size(),1);
@@ -76,7 +76,7 @@ class GroupEventTest {
 	}
 
 	@Test
-	void testMoveAll() {
+	public void testMoveAll() {
 		test = new GroupEvent();
 		for(int i=0;i<10;i++) {
 			test.addRacer();
@@ -91,7 +91,7 @@ class GroupEventTest {
 	}
 	
 	@Test
-	void testDNF() {
+	public void testDNF() {
 		test = new GroupEvent();
 		test.addRacer();
 		test.addRacer();
@@ -108,7 +108,7 @@ class GroupEventTest {
 	
 	
 	@Test
-	void testSetRacerNum(){
+	public void testSetRacerNum(){
 		test = new GroupEvent();
 		test.addRacer("Racer1");
 		test.addRacer("Racer2");
@@ -126,7 +126,7 @@ class GroupEventTest {
 	}
 	
 	@Test
-	void testClear(){
+	public void testClear(){
 		test = new GroupEvent();
 		test.addRacer("R1");
 		test.addRacer("R2");
@@ -145,7 +145,7 @@ class GroupEventTest {
 	}
 	
 	@Test
-	void testSwap() {
+	public void testSwap() {
 		test = new GroupEvent();
 		Racer r1 = new Racer("Racer1");
 		Racer r2 = new Racer("Racer2");

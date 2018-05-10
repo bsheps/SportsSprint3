@@ -1,22 +1,16 @@
-//import org.junit.Test;
-//
-//import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+//import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
 
-class TestRacer {
-
+public class TestRacer {
 	Racer r1, r2, r3, r4, r5, r6, r7, r8;
 
-	public TestRacer() throws InterruptedException {
-		testResults();
-		testCompareTo();
-	}
-
 	@Test
-	void testResults() {
+	public void testResults() {
 		// set a start time
 		LocalTime start = Time.getCurrentTime();
 
@@ -68,7 +62,7 @@ class TestRacer {
 	}
 
 	@Test
-	void testCompareTo() throws InterruptedException {
+	public void testCompareTo() throws InterruptedException {
 		// set some start times
 		LocalTime start1 = Time.getCurrentTime();
 		Thread.sleep(2250);

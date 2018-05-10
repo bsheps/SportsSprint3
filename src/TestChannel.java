@@ -1,11 +1,10 @@
-//import org.junit.Test;
-//import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-class TestChannel {
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class TestChannel {
 
 	@Test
-	void testChannel() {
+	public void testChannel() {
 		Channel c1 = new Channel();
 
 		// test boundary cases for channels
