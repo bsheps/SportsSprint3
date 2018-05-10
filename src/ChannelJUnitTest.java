@@ -15,11 +15,11 @@ public class ChannelJUnitTest {
 	@Test
 	public void testToggleAndisEnabled() {
 		c = new Channel();
-		for(int i =0; i<13; i++) {
+		for(int i =1; i<13; i++) {
 			assertTrue(c.Toggle(i));
 			assertTrue(c.isChannelEnabled(i));			
 		}
-		for(int i =0; i<13; i++) {
+		for(int i =1; i<13; i++) {
 			assertFalse(c.Toggle(i));
 			assertFalse(c.isChannelEnabled(i));			
 		}
@@ -29,16 +29,16 @@ public class ChannelJUnitTest {
 	@Test
 	public void testconnectSensoranddisconnectSensor() {
 		c = new Channel();
-		for(int i =0; i<13; i++) {
+		for(int i =1; i<13; i++) {
 			assertTrue(c.connectSensor("gate",i));		
 		}
-		for(int i =0; i<13; i++) {
+		for(int i =1; i<13; i++) {
 			assertEquals(c.getSensor(i),"gate");		
 		}
-		for(int i =0; i<13; i++) {
+		for(int i =1; i<13; i++) {
 			assertTrue(c.disconnectSensor(i));		
 		}
-		for(int i =0; i<13; i++) {
+		for(int i =1; i<13; i++) {
 			assertEquals(c.getSensor(i),null);		
 		}
 		assertFalse(c.connectSensor("", -1));
