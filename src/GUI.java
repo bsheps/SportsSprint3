@@ -6,7 +6,9 @@ import javax.swing.JToggleButton;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -15,6 +17,8 @@ import java.awt.GridLayout;
 
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;
+
+
 /**
  * @author bshepard
  * Simulates the physical chronotimer: 
@@ -41,11 +45,9 @@ public class GUI {
 
 	private String instructions = "1 - CLR\n2 - CONN\n3 - DISC\n4 - DNF\n5 - ENDRUN\n6 - IND EVENT\n7 - PARA EVENT\n8 - GRP EVENT\n9 - PARGRP EVENT\n10 - EXPORT\n11 - FINISH\n12 - NEWRUN\n13 - NUM\n14 - PRINT\n15 - RESET\n16 - TIME\n17 - START";
 
-	private CommandsInterface commandInt;
+	public CommandsInterface commandInt;
 
-	public static void main(String[] args) {
-		new GUI();
-	}
+	
 
 	/**
 	 * Constructs the buttons, adds functionality, layout,

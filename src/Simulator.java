@@ -12,9 +12,9 @@ public class Simulator{
 	 * @throws IOException 
 	 */
 	public Simulator() throws IOException{
-
+		GUI g =new GUI();
 		simulatorOn = true;
-		ct = new ChronoTimer();
+		ct = g.commandInt;
 		Scanner s = new Scanner(System.in);
 		System.out.println("Read file from console or file (c/f): ");
 		String input = s.nextLine();
