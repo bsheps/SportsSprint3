@@ -16,5 +16,6 @@ public class Driver {
 				e.printStackTrace();
 			}
 		}
+		System.exit(0);
 	}
 }

@@ -97,7 +97,5 @@ public class Simulator{
 			break;
 		}	
 	}
-	public static void main(String[] s) throws IOException {
-		new Simulator();
-	}
+
 }
