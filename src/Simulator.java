@@ -76,6 +76,18 @@ public class Simulator{
 		case "ENDRUN":
 			ct.ENDRUN();
 			break;
+		case "DNF":
+			ct.DNF();
+			break;
+		case "CLR":
+			ct.CLR(tokens[2]);
+			break;
+		case "RESET":
+			ct.RESET();
+			break;
+		case "SWAP":
+			ct.SWAP();
+			break;
 		case "TIME":
 			//tokens[2] to set time 
 			ct.TIME(tokens[2]);
@@ -94,6 +106,15 @@ public class Simulator{
 			break;
 		case "CONN" :
 			ct.CONN(tokens[2], Integer.parseInt(tokens[3]));
+			break;
+		case "DISC" :
+			ct.DISC(Integer.parseInt(tokens[2]));
+			break;
+		case "START" :
+			ct.START();
+			break;
+		case "FINISH" :
+			ct.FINISH();
 			break;
 		}	
 	}
