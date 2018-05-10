@@ -1,19 +1,19 @@
-//import static org.junit.Assert.*;
-//import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-class ChannelJUnitTest {
+//import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.Test;
+public class ChannelJUnitTest {
 	Channel c;
 	@Test
-	void testInitialization() {
+	public void testInitialization() {
 		c = new Channel();
 		for(int i = 0; i <13; i++) {
 			assertFalse(c.isChannelEnabled(i));
 		}
 	}
 	@Test
-	void testToggleAndisEnabled() {
+	public void testToggleAndisEnabled() {
 		c = new Channel();
 		for(int i =0; i<13; i++) {
 			assertTrue(c.Toggle(i));
@@ -27,7 +27,7 @@ class ChannelJUnitTest {
 		assertFalse(c.Toggle(13));
 	}
 	@Test
-	void testconnectSensoranddisconnectSensor() {
+	public void testconnectSensoranddisconnectSensor() {
 		c = new Channel();
 		for(int i =0; i<13; i++) {
 			assertTrue(c.connectSensor("gate",i));		
