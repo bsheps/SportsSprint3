@@ -65,8 +65,9 @@ public class ChronoTimer implements CommandsInterface {
 			Queue<Racer> tmp = _event.moveAll();
 			_storageUnit.add(tmp);
 			_print.printThis(Time.getCurrentTimeString()+ " Ending run");
+			displayServer.updateResults(_storageUnit.get(_storageUnit.size()-1));
 		}
-		displayServer.updateResults(_storageUnit.get(_storageUnit.size()-1));
+		
 	}
 
 	public void EVENT(String eventName) {
