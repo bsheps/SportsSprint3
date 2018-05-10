@@ -1,9 +1,7 @@
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.Assert.*;
 import java.time.LocalTime;
-
-import org.junit.jupiter.api.Test;
 
 class TestRacer {
 
