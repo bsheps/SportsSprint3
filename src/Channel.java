@@ -8,30 +8,30 @@ public class Channel {
 	private String[] sensor = new String[13]; // 0 slot left empty
 
 	public Channel() {
-		for (int i = 0; i < channel.length; i++)
+		for (int i = 1; i < channel.length; i++)
 			channel[i] = false;
 	}
 
 	public boolean Toggle(int ch) {
-		if (ch < 0 || ch >= channel.length) return false;
+		if (ch < 1 || ch >= channel.length) return false;
 		channel[ch] = !channel[ch];
 		return channel[ch];	
 	}
 
 	public boolean isChannelEnabled(int channelNumber) {
-		if (channelNumber < 0 || channelNumber >= channel.length)return false; 
+		if (channelNumber < 1 || channelNumber >= channel.length)return false; 
 		return channel[channelNumber];
 	}
 
 	public boolean connectSensor(String sensortype, int chan) {
-		if (chan < 0 || chan >= channel.length)return false; 
+		if (chan < 1 || chan >= channel.length)return false; 
 		if (sensortype == null||sensor[chan] != null) return false;
 		
 		sensor[chan] = sensortype;
 		return true;
 	}
 	public boolean disconnectSensor(int chan) {
-		if (chan < 0 || chan >= channel.length|| sensor[chan]==null)return false; 
+		if (chan < 1 || chan >= channel.length|| sensor[chan]==null)return false; 
 		sensor[chan] = null;
 		return true;
 	}
