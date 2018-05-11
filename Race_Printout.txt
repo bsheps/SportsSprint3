@@ -587,3 +587,41 @@ PRINT METHOD ERROR: Invalid run number; out of bounds exception
 13:52:00.00 PRINTER POWER BUTTON
 13:55:00.00 Trigger channel 2
 13:56:00.00 Trigger channel 4
+12:04:50.00 PRINTER POWER BUTTON
+12:06:00.00 Ending run
+Printing IND1
+315: 00:00:45.00
+234: DNF
+13:01:00.00 Setting event to IND
+12:06:10.00 starting IND
+13:02:10.00 racer created with bib: 167
+13:02:15.00 racer created with bib: 166
+13:02:20.00 racer created with bib: 200
+13:02:25.00 racer created with bib: 201
+PRINT METHOD ERROR: Invalid run number; out of bounds exception
+13:04:30.00 Trigger channel 1
+13:05:00.00 Trigger channel 1
+13:05:02.00 Trigger channel 2
+13:05:02.00 Setting DNF for next trigger
+13:05:15.00 Trigger channel 2
+13:05:18.00 Trigger channel 4
+13:05:19.00 Ending run
+Printing IND2
+167: 00:00:32.00
+166: DNF
+200: CANCELLED
+201: CANCELLED
+13:05:25.00 POWERING OFF- PENDING ITEMS:
+12:04:50.00 PRINTER POWER BUTTON
+12:01:00.00 POWERING OFF- PENDING ITEMS:
+13:52:00.00 PRINTER POWER BUTTON
+13:53:00.00 Setting DNF for next trigger
+13:55:00.00 Trigger channel 2
+13:56:00.00 Trigger channel 4
+12:04:50.00 PRINTER POWER BUTTON
+12:06:00.00 Ending run
+Printing IND1
+315: 00:00:45.00
+12:06:00.00 GATE successfully connected.
+12:06:00.00 GATE successfully connected.
+12:06:00.00 Sensor at channel 1 disconnected successfully.

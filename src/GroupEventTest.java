@@ -72,7 +72,7 @@ public class GroupEventTest {
 		}
 		assertEquals(test.racers.size(),0);
 		assertEquals(test.finished.size(),5);
-		assertFalse(test.raceInSession);
+
 	}
 
 	@Test
